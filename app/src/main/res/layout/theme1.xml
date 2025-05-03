@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+<!--            <VideoView-->
+<!--                android:id="@+id/videoView"-->
+<!--                android:layout_width="300dp"-->
+<!--                android:layout_height="150dp"-->
+<!--                android:layout_gravity="center"/>-->
+
+            <TextView
+                style="@style/Title"
+                android:text="Знакомство с Visual Studio"/>
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="    Привет! Давай вначале разберемся с средой разработки(IDE), где мы дальше будем писать наши программы! \n    Зайжите на официалльный сайт Microsoft и выберите установку Visual Studio Community - это бесплатная версия для разработчиков. Дождитесь окончания скачивания." />
+
+            <ImageView
+                android:layout_height="200dp"
+                style="@style/Image"
+                app:srcCompat="@drawable/image_site_dowloand" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  После скачивания запустите Visual Studio Installer и выберите расширения ASP.NET и .NET или то, что подходит под ваши задачи." />
+
+            <ImageView
+                android:layout_height="200dp"
+                style="@style/Image"
+                app:srcCompat="@drawable/dowloand_net" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Далее выберите язык и путь установки. После завершения установки выберите создание нового проекта. " />
+
+            <ImageView
+                android:layout_height="250dp"
+                style="@style/Image"
+                app:srcCompat="@drawable/create_project" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Далее введите в строку поиска 'Консольное приложение' и убедитесь, что выбран фреймворк .Net. После этого введите название пректа и выберите путь сохранения." />
+
+            <ImageView
+                android:layout_height="200dp"
+                style="@style/Image"
+                app:srcCompat="@drawable/console_app" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  На этом в общем все. Но я так же добавлю о способо ввода и выаода иноформации." />
+
+            <ImageView
+                android:layout_height="200dp"
+                style="@style/Image"
+                app:srcCompat="@drawable/end_theme1" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Ввод осуществляется через команду Console.ReadLine(), а конвертирование к нужному типу данных через Convert.(необходимый метод). Например ввод целого числа будет выглядеть так: int n = Convert.ToInt32(Console.ReadLine()); А вывод информации с помощью Console.Write('текст') или Console.WriteLine('текст').  Кстати, чтобы быстро вызвать Console.WriteLine() можно написать cw и два раза нажать Tab). После исполнения программа быстро закрывается и мы не успеваем увидеть результат, чтобы этого избежать мы можем записать Console.ReadKey() или запустить программу комбинацией Ctrl+F5. А если у вас вместо русских букв выводятся знаки вопроса, то введите следующее:"/>
+
+            <TextView
+                style="@style/Code"
+                android:text="Console.InputEncoding = Encoding.UTF8;
+\nConsole.OutputEncoding = Encoding.UTF8;"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Практическое задание: установить Visual Studio" />
+
+            <TextView
+                android:id="@+id/codeView"
+                style="@style/Code" />
+
+            <Button
+                android:id="@+id/button"
+                style="@style/Button"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

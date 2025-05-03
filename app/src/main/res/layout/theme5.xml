@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Title"
+                android:text="Циклы while и do...while" />
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Цикл - это последовательность действий, выполняемоя множество раз. Одно выполнение последовательности - итерация. Существует три вида циклов: \n1. Цикл с предусловием \n2. Цикл с постусловием \n3. Цикл со счетчиком \n   while - это цикл с предусловием, то етсь сначала задается условие выполнения и если оно истинно, то последовательность действий выполняется. Вот пример данного цикла: "/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme5_1"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:textStyle="bold"
+                android:text="Замечание: также как и с условием, можно не писать фигурные скобки, если цикл повторяет лишь одно действие."/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  В свою же очередь, цикл do...while почти полностью повторяет цикл while, но все же это цикл с постусловием, а значит - имеет свои отличия: \nцикл do...while точно будет выполнен хоть один раз, а while может не выполнится вообще. Вот пример записи цикла do...while: "/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme5_2"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:textStyle="bold"
+                android:text="Замечание: будьте осторожны ведь эти циклы могут легко уходить в бесконечное повторение, что в программах будет очень сущевственной ошибкой."/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Практическое задание: Разработайте консольную игру 'Угадай число', в которой:
+
+\n - Компьютер случайным образом загадывает число от 1 до 100.
+\n - Игрок пытается угадать это число, вводя свои варианты.
+\n - После каждой попытки программа сообщает, больше или меньше загаданное число.
+\n - Игра продолжается, пока число не будет угадано."/>
+
+            <TextView
+                android:text="Совет: \nRandom random = new Random();
+\nint randomNumber = random.Next(0, 101);"
+                style="@style/Code" />
+
+            <TextView
+                android:id="@+id/codeView"
+                style="@style/Code" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Button"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

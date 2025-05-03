@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Title"
+                android:text="Типы данных в C#"/>
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Переходим к изучению языка. Для начала изучим типы данных. Конкретнее про числовые типы данных. \n  Основные числовые типы данных, которыми мы будет оперировать - это int, float и double. Также есть byte, sbyte, short, ushort, uint, long, ulong и тип с плавающей точкой decimal. \n   int - это исключительно целое число, в то время как float, double и decimal - числа с плавающей точкай, то есть десятичные дроби. Разные числовые типы данных имеют разный размер. Конкретней про размер типа вы можете узнать написав 'тип.MaxValue' или 'тип.MinValue'" />
+
+            <ImageView
+                style="@style/Image"
+                app:srcCompat="@drawable/theme2_1" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Далее символьные типы данных. Это типы char и string. С ними все просто char - один символ, string - множество символов. Кроме того у символов строки есть нумерация, но об этом позже. Также позже мы разберем методы типа string. \n  Слудующим типом разберем bool. Этот тип может принимать лишь два значения true или false." />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Замечание: разобранные нами типы данных - это типы-значения, то есть хранят конкретное значение. А также есть ссылочные типы данных, которые хранят ссылку на определенную область памяти, с этим нюансом подробнее разберемся при изучении массивов."
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Также надо объяснить про конкатенацию и интерполяцию. Конкатенация - это сложение строк. Допустим у нас переменная строкового типа, имеющая значение имени, тогда мы может вывести нечто подобное Console.WriteLine('Привет, ' + переменная). А если у нас слишком много элементов для сложения, то можем использовать интерполяцию. Она выглядит так: Console.WriteLine($'Привет, {переменная}'). Вывод будет идентичен, но в разных случаях удобней будет использовать разные способы."/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Также немного про операции над числами. \n1. + - сложение \n2. - - вычитание \n3. * - произведение \n4. / - деление \n5. % - деление нацело (результат - остаток от числа). \n  И вот еще положительная фича - выражение x = x + 1 можно заменить на x += 1 и результат будет тот же. Аналогично и для других операций. "/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Более сложные математические операции представлены в классе Math. Например, чтобы возвест число 2 пятую степень надо написать Math.Pow(2, 5). После ввода точки показано множество методов. Можете проэкспериментировать с ними, если ва это необходимо"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:textStyle="bold"
+                android:text="Замечание: деление целочисленных типов данных возвращает целое число, то есть так можно потерять остаток. например 2 / 3 даст 0, но 2.0 / 3 даст 0.66666 и так далее. Чтобы счет был корректным достаточко однг число привести к вещественному типу данных"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Практическое задание: Сделать ввод имени и возраста пользователя. Вывести имя с помощью конкатенации, а возраст с помощью интерполяции" />
+
+            <TextView
+                android:id="@+id/codeView"
+                style="@style/Code" />
+
+            <Button
+                style="@style/Button" />
+        </LinearLayout>
+
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

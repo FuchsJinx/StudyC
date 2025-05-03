@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Title"
+                android:text="Все и сразу"/>
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:textSize="20dp"
+                android:text="Сборники теоритических сведений"/>
+
+            <TextView
+                android:id="@+id/textLink1"
+                style="@style/Code"
+                android:clickable="true"
+                android:focusable="true"
+                android:minHeight="48dp"
+                android:text="Документация по C#"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/textLink2"
+                style="@style/Code"
+                android:clickable="true"
+                android:focusable="true"
+                android:minHeight="48dp"
+                android:text="Учебник по C#"
+                android:textSize="16dp" />
+
+            <Button
+                android:id="@+id/button"
+                style="@style/Button"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

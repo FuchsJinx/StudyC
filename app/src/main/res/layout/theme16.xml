@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Title"
+                android:text="Обработчик исключений try...catch"/>
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Когда выполняется программа, может возникнуть какая-либо проблема. Если вы предполгаете. что в каком-то моменте ее исполнения может возникнуть ошибка, то следует воспользоваться обработчиком исключений try...catch. Эта конструкция отлавливает ошибки и не дает программе вылететь. Вот пример выполнения такого блока: "/>
+
+            <ImageView
+                style="@style/Title"
+                android:src="@drawable/theme16_1"
+                android:layout_height="170dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  В данном случае за место вылета из-за невозможного деления на 0, выведится сообщение об ошибке, а можно например запросить повторный ввод числа. Если же вам необходимо все таки прервать выполнение программы, то используется ключевое слово throw в блоке catch - оно принудительно создает исключение" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:textStyle="bold"
+                android:text="Замечание: если у вас все же не появляется сообщение об ошибке, то помните, что нужно запускать выполнение без отладки"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Практическое задание: попробуйте обработать исключение когда строка имеет значение null."/>
+
+            <TextView
+                android:id="@+id/codeView"
+                style="@style/Code"
+                android:minHeight="48dp" />
+
+            <Button
+                style="@style/Button"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

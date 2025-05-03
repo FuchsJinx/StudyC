@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Title"
+                android:text="Структуры"/>
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Структуры - это тип значение, набор одной или нескольких переменных разных типов, сгруппированыых по одним именем. Они очень сходи с классами, так как тоже имеют поля и методы, но их суть отличается. Для объявления структуры применяется ключевое слово struct. Начиная с C# 12 для пустых структур модно не писать фигурные скобки. Вот пример описания структры:"/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme14_1"
+                android:layout_height="190dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Как видно структуры не сильно отличаются от классов, но нужны болльше для описания простых объектов с простым поведением. Скорее даже так: они нужны чтобы описать объект и работать со списком таких объектов. Это наиболее распространенное использование структур. А вот так будет выглядеть обработка массива из этой структуры: "/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme14_2"
+                android:layout_height="200dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Структуры такде имеют конструкторы, которые пишутся через ключевое слово new. Кстати, если используется базовый конструктор, то можно писать только new(). "/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Практическое задание: \n1.	Описать структуру с именем Route, содержащую следующие поля:
+                            \n - Start – название начального пункта маршрута;
+                            \n - Finish– название конечного пункта маршрута;
+                            \n - Name – номер маршрута.
+                            \n2.	Написать программу, выполняющую следующие действия:
+                            \n - ввод с клавиатуры данных в массив routes, состоящий из восьми элементов типа Route; записи должны быть упорядочены по номерам маршрутов;
+                            \n - вывод на экран информации о маршрутах, которые начинаются или кончаются в пункте, название которого введено с клавиатуры;
+                            \n - если таких маршрутов нет, выдать на дисплей соответствующие сообщение."/>
+
+            <TextView
+                android:id="@+id/codeView"
+                style="@style/Code"
+                android:minHeight="48dp" />
+
+            <Button
+                style="@style/Button"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

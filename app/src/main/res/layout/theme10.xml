@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Title"
+                android:text="Регулярные выражения"/>
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Регулярные выражения представлены классами Regex b MathcCollections, но в это можете пока не вдаваться. Проще - это удобный способ поиска регулярных в тексте выражений."/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Основные классы:
+                \n - Regex - постоянное регулярное выражение.
+                \n - Match - предоставляет результаты очередного применения всего регулярного выражения к исходной строке.
+                \n - MatchCollection - предоставляет набор успешных сопоставлений, при итеративном применении образца регулярного выражения к строке.
+                \n - Capture - предоставляет результаты отдельного захвата подвыражения.
+                \n - Group - предоставляет результаты для одной регулярной группы.
+                \n - GroupCollection - предоставляет коллекцию найденных групп и возвращает набор групп как одно соответствие.
+                \n - CaptureCollection - предоставляет последовательность найденных подстрок и возвращает наборы соответствий отдельно для каждой группы."/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Также можно добавить опции поиска с помощью RegexOptions. Вот некоторые:
+                \n - IgnoreCase – находит совпадения независимо от регистра, т.е. прописными или строчными буквами в строке написано слово.
+                \n - IgnorePatternWhitespace – устраняет из шаблона неизбежные пробелы и включает комментарии помеченные «#».
+                \n - Compiled – указывает что регулярное выражение скомпилировано в сборку. Это порождает более быстрое исполнение но увеличивает время запуска.
+                \n - CultureInvariant – указывает игнорирование региональных языковых различий.
+                \n - ExplicitCapture – указывает что единственные допустимые записи являются явно поименованными или пронумерованными группами в форме(?name>…)
+                \n - Multiline – Многострочный режим. Изменяет значения символов “^” и“$” так что они совпадают соответственно в начале и конце каждой строки, а не только в начале и конце целой строки.
+                \n - RightToLeft – указывает что поиск будет выполнен справа на лево, а не слева на право.
+                \n - Singleline – однострочный режим.
+                \n - None – указывает на отсутствие заданных параметров."/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Также в шаблон поиска Regex можно вписать спецсимволы, что позволяет расширить возможности поиска:
+                \n - ^ - указывает на то, что поиск должен начинаться с начала строки, например шаблон (@”^не”) найдет “не” в строке, если она начинается с него.
+                \n - $ -указывает на то что поиск должен производиться в конце строки, шаблон (@”не$”) найдет ''не'' в той же самой строке, только если она заканчивается им.
+                \n - {n} – указывает точное число вхождений в строку, например шаблон (@''не{2}'') найдет слово ''нее'' в строке.
+                \n - {n,} – указывает число вхождений не менее n, т.е. шаблон (@''не{2,}'') найдет слова ''нее'', ''неее'' и т.д.
+                \n - {n,m} – указывает число вхождений-n и количество символов вхождения-m, то есть шаблон (@''не{2,4}'') найдет все слова где количество букв ''е'' больше 2, но определит только количество букв ''е'' равное 4. Т.е. в слове ''нееееееееее'' он найдет только ''нееее''.
+                \n - +  - Соответствует 1 или более предшествующих выражений. Например, ''не+'' соответствует ''не'' и ''нее'', но не соответствует ''н''.
+                \n - *  - Соответствует 0 или более вхождений предшествующего выражения. Например, 'не*' соответствует ''н'' и ''нее''.
+                \n - ? - Соответствует 0 или 1 предшествующих выражений. Например, 'бы(ло)?' соответствует ''бы'' в ''бы'' или ''было''.
+                \n - В квадратных скобках можно указать диапазон букв или цифр для поиска, например [A-Z] или [0-9]
+                \n  Вот пример использования регулярного выражения:"/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme10_1"
+                android:layout_height="170dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:textStyle="bold"
+                android:text="Замечание: \n1. шаблон поиска пишется через @
+                \n2. match.Value - результат поиска, match.Count - кол-во найденных результатов"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Практическое задание: дан текст, найти в нем слово «пароль» и однокоренные с ним слова."/>
+
+            <TextView
+                android:id="@+id/codeView"
+                style="@style/Code"
+                android:minHeight="48dp" />
+
+            <Button
+                style="@style/Button"/>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

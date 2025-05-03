@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Title"
+                android:text="Оператор ветвления - if/else if/else"/>
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Преступим к новой теме! Оператор ветвления - if. Это оператор условия, в пример можно привести выражение - если ДА, то выполнить то, иначе выполнить другое. На языке это будет выглядеть так: " />
+
+            <ImageView
+                style="@style/Image"
+                app:srcCompat="@drawable/theme3_1" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  В данном случае 100% выведет 'Привет, мир!', но если это будет какое-то булевое выражение, то результат выполнения может отличаться. Давате разберем логические выражения." />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Логическая операция может быть унарной, то есть состоять из одного компонента - булевая переменная. Или простая, например 5 = 5 или 1 != 0. Кстати здесь давайте разберемся с логическими операторами. \n1. == - равно \n2. != - не равно \n3. > /  - больше/меньше \n4. >= / = - больше либо равно, меньше либо равно \n5. ! - не, то есть любое отрицание \n6. &amp;&amp; - логическое 'И', то есть истинно, когда оба утверждения истинны \n7. || - логическое 'ИЛИ', то есть утчверждение истинно, когда хотя бы один член выражения истинен" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Зная это мы можем составлять более сложные логические выражения, состоящие из множества утверждений. Вот пример кода: " />
+
+            <ImageView
+                style="@style/Image"
+                app:srcCompat="@drawable/theme3_2" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Далее расскажу про else if. Этот член кострукции может использоваться сколь угодно много раз и необязателен, в то время как if используется один раз и обязателен, а else также может быть применен один раз в конструкции и необязателен. else if - это еще одно условие, которое может выполняться в другом варианте отличном от if. Проще будет понять на примере: " />
+
+            <ImageView
+                style="@style/Image"
+                app:srcCompat="@drawable/theme3_3" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  В данном примере, не будет выполнять условие в if, но будет выполнятся условие в else if, так как a точно истинно. " />
+
+            <TextView
+                style="@style/MyStyle"
+                android:textStyle="bold"
+                android:text="  Замечание: если после условия выполняется лишь одно действие, то фигурные скобки можно не писать!" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  И теперь стоит уточнить про ТЕРНАРНУЮ ОПЕРАЦИЮ. Тернарная операция - это краткая записать конструкции if/else без возможности расширения else if. Вот тернарная операция ко второму примеру: " />
+
+            <ImageView
+                style="@style/Image"
+                app:srcCompat="@drawable/theme3_4" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Само условие записывается в скобочках, после знака '?' - это действия если условие истинно, а после ':' - если условие ложно. Конструкция фиксированна и в ней не может быть меньше элементов или больше, она кратка, но не всегда подходит под задачи)" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="\nПрактическое задание: Запросить у пользователя текущую температуру в комнате.
+
+\nЗапросить желаемую температуру.
+
+\nСравнить значения и вывести решение:
+
+\nЕсли текущая температура ниже желаемой - 'Включить обогрев'
+
+\nЕсли текущая температура выше желаемой - 'Включить охлаждение'
+
+\nЕсли температуры равны - 'Температура в норме. Система отключена'"/>
+
+            <TextView
+                android:id="@+id/codeView"
+                style="@style/Code" />
+
+            <Button
+                style="@style/Button" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

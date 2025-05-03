@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Title"
+                android:text="Цикл for / foreach"/>
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Цикл for - это цикл со счетчиком. Он подразумевает ведение счетчика, например итераций. Это как бы означает, что количество итераций ограничено, хотя это и можно обойти. Вот пример цикла for: "/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme6_1"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Данный пример выведет числа от 0 до 5 не включая 5. Давайте поподробней про конструкцию. \n1. int i = 0 - это начальная инициализация счетчика. Обычно берутся за названия буквы i, j, k, n и тому подобное, если это простой перебор. \n2. i  5 - это условие выполнения цикла. Пока i  5 цикл будет выполнятся. \n3. i++ - это приращение счетчика, то на сколько будет увеличиваться счетчик. В данном случае на 1. ++ - это увеличение на 1, -- - уменьшение на 1. Это инкремент и дикремент соответственно. "/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  В общем можно было бы и заранее объявлять переменную или задать условие не связанное со счетчиком, тогда можно увести цикл даже в бесконечное выполнение"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:textStyle="bold"
+                android:text="Замечание: все переменные созданные в цикле, существуют только внутри него (в теле цикла) и не существуют за его пределами! \nЧасто используются вложенные циклы - когда внутри одного цикла выполняется другой."/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Теперь перейдем к циклу foreach - этот цикл обрабатывает коллекции и он будет полезен при работе с массивами далее. Его суть заключается в создании переборе значений коллекций. Создается переменная с типом данных, что и у элементов коллекции и получает ее элемент и с ней проходят какие-то операции, после переменная получает следующий элемент коллекции и повторяет действие, пока все элементы не будут перебраны. Вот пример для строки (строка - это массив символов): "/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme6_2"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Данный код выведет слово по одному символу. Кстати здесь как тип указан var - это неизвестный тип, Visual Studio сам будет определять тип переменной."/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Практическое задание: пользователь вводит верхний порог чисел, вывести количество чисел кратных 3. Для цикла foreach: пользователь вводит слово. Посчитать количесвто букв 'а' в нем."/>
+
+            <TextView
+                android:id="@+id/codeView"
+                style="@style/Code" />
+
+            <Button
+                style="@style/Button"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Title"
+                android:text="FIFO / LIFO"/>
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text=" FIFO и LIFO - это логика обработки коллекций. Если расшифровать, то это First In First Out(первый вошел, первый вышел) и Last In First Out (последний вошел первый вышел). Начнем с FIFO - это очереди(Queue). Тут все по аналогии с живыми очередями, когда вы приходите в очередь, то добавляетесь в конец, а тот, кто первый войдет, тот первый выйдет. Вот основные операции в Queue:
+                            \n1. Добавление элемента → Enqueue(T item)
+                            \n2. Извлечение и удаление первого элемента → Dequeue()
+                            \n3. Просмотр первого элемента без удаления → Peek()
+                            \n4. Проверка наличия элемента → Contains(T item)
+                            \n5. Очистка очереди → Clear()
+                            \n6. Получение количества элементов → Count
+                            \nВот пример работы с очередями:" />
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme19_1"
+                android:layout_height="300dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  LIFO представлено стопками(Stack), как и с настоящими стопками, когда мы кладем книгу последей сверху, то берем ее первой, а первая, что лежит внизу, мы ее возьмем последней. Основные методы Stack
+                            \n1. Добавление элемента → Push(T item)
+                            \n2. Извлечение и удаление последнего элемента → Pop()
+                            \n3. Просмотр последнего элемента без удаления → Peek()
+                            \n4. Проверка наличия элемента → Contains(T item)
+                            \n5. Очистка стека → Clear()
+                            \n6. Получение количества элементов → Count
+                            \nВот пример работы со стеками:"/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme19_2"
+                android:layout_height="300dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Практическое задание:
+                \nQueue - сымитируйте работу банка. 3 клиента пришли в очередь. Обслужили двух, пришло еще двое. Узнать усть ли Клиент 3 в очереди.
+                \nStack - сделайте имитацию истории переходов по вкладкам"/>
+
+            <TextView
+                android:id="@+id/codeView"
+                style="@style/Code"
+                android:minHeight="48dp" />
+
+            <Button
+                android:id="@+id/button"
+                style="@style/Button"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

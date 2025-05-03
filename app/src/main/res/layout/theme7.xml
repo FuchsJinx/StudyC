@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Title"
+                android:text="Одномерные массивы"/>
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Вот мы и добрались до массивов. На них строится множество программ, потому что они упрощают логику. Массив - это набор данных одного типа. Например в нем мы можем хранить список всех студентов в колледже или тому подобное. Вот пример объявления массива: "/>
+
+            <TextView
+                style="@style/Code"
+                android:text="тип[] имя = new тип[размер]; \nint[] array = new int[10]; \nИли так \nтип[] имя = {n1, n2, n3 ... n}; \nint[] array = { 3, 6, -7, 9, 5, -10, 11};"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:textStyle="bold"
+                android:text="Замечание: массив - это ссылочный тип данных, то есть он ссылается на область в памяти. Поэтому, когда мы приравниваем один массив к другому, то они просто начинают ссылаться на одну и ту же ячейку памяти, а значение массива, который мы приравниваем теряется. Это важно запомнить."/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  К элементу массива можно обратиться по его индексу, а индексация элементов ведется с 0. Из-за индексации удобнее всего использовать цикл for"/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme7_1"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  array.Length - это длина массива, то есть количество элементов массива. \n  array[i] - обращение к элементу массива."/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  На этом строится работа с одномерными массивами, где вы сами пишете алгоритмы их обработки, но есть и типичные алгоритмы. Алгоритмы сортировки разберем на примере сортировки по возрастанию через поиск минимального элемента. \n\nЛинейная сортировка" />
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme7_2"
+                android:layout_height="250dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Сортировка пузырьком" />
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme7_3"
+                android:layout_height="200dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Практическое задание: пользователь вводит массив вещественных чисел. Выведите отсортированный по убыванию массив, а также сумму его четных элементов"/>
+
+            <TextView
+                android:id="@+id/codeView"
+                style="@style/Code"
+                android:minHeight="48dp" />
+
+            <Button
+                style="@style/Button"/>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

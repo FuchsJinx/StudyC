@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Title"
+                android:text="Многомерные массивы"/>
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Многомерные массивы мы разберем на примере двумерных (матриц). Чтобы было проще понимать многомерность массивов предствим их как массив в массиве и так далее. То есть если в одномерном массиве мы обращаемся к элементу массива, то в матрице мы сначала обращаемся к конкретному массиву, а потом к его элементу. Так ма можем увеличивать размерность массива, просто надо увеличивать глубину обращения. А вот так объявляется матрица в C#"/>
+
+            <TextView
+                style="@style/Code"
+                android:text="тип[,] имя = new тип[n, m]; - гду n - кол-во длина большего массива, а m - меньшего. Пример: \nint[,] array = new int[3, 4]; \nДля больших размерностей мы лишь увеличиваем количество запятых и указателей длины. \nДля начального заполнения: \nint[,] ints = { \n{ 1, 2, 3 }, \n{ 4, 5, 6 }, \n{ 7, 8, 9 } }; - например) "/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme8_1"
+                android:layout_height="270dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Пояснения: \n   GetLength(i) - это получение длиные массива. А i - это его уровень. 0 - самый больший и далее на уменьшение. \n    И из примера ранее видно, что столбцы и строки для нашего понимания и понимания программы разные, а точнее меняются местами, про это стоит помнить и потому усложняеся логика обращения к элементу."/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  В остальном работа с одномерными и двумерными массивами схожа. Теперь разберем пример сортировки матрицы. Для этого преобразуем матрицу в одноменый массив"/>
+
+            <TextView
+                android:id="@+id/code"
+                style="@style/Code"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Практическое задание: задан массив размера n на m. Вывести нечетные строки этого массива."/>
+
+            <TextView
+                android:id="@+id/codeView"
+                style="@style/Code"
+                android:minHeight="48dp" />
+
+            <Button
+                style="@style/Button"/>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

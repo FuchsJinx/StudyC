@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Title"
+                android:text="Интерфейсы"/>
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  В прошлой теме мы узнали про абстрактные классы и методы, которые описываются, но не реализуются. С такой же целью существуют интерфейсы. \n  Интерфейс - ссылочный тип, который определяет некоторые данные, но не реализует их, эта задача ложится на дочерние классы. \n Для создания интерфейса используется ключевое слово interface, а хорошим стилем считается называть интерфесы с большой буквы I."/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Интерфесы могут определять слудующие сущности: \n1. Методы \n2. Свойства \n3. События \n4. Статические поля и константы (начиная с версии C# 8.0) \n  Изначально уровень доступа интерфейса internal, то есть он доступен везде в рамках одной программы. Вот пример написания интерфейса"/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme13_1"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  В данном случае не нужны слова virual или override, ведь когда, мы наследуем от интерфейса, то класс обязан реализовать все его методы и свойства. Вот так будет выглядеть класс, если переписать его через интерфейс"/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme13_2"
+                android:layout_height="220dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  При этом преимущество интерфейса в том, что можно реализовать множественное наследование. Класс может наследоваться от множетсва интерфейсов. Давайте реализуем это свойство: "/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme13_3"
+                android:layout_height="280dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Мы написали интерфейс IColor и реализовали его, при это теперь класс наследуется от двух интерфейсов, которые написаны через запятую."/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Практическое задание: в одномерном массиве, состоящем из n вещественных элементов. Вычислить произведение положительных элементов массива. В интерфейсе описать вычисления и заполнения, а также свойство длинны массива."/>
+
+            <TextView
+                android:id="@+id/codeView"
+                style="@style/Code"
+                android:minHeight="48dp" />
+
+            <Button
+                style="@style/Button"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

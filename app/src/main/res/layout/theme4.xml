@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Title"
+                android:text="Оператор множественного выбора - switch" />
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+            <TextView
+                android:id="@+id/text"
+                android:text="  Теперь стоит рассказать про аналог кострукции if / else - switch. В нем как бы идет перебор значений(case) и если оно совпадает, с заданным, то выполняется какая-то цепочка действий. Если же нет совпадений ни с одним значением, то может выполнятся стандартное значение(default). Вот пример такой конструкции: "
+                style="@style/MyStyle"/>
+
+            <ImageView
+                style="@style/Image"
+                app:srcCompat="@drawable/theme4_1" />
+
+            <TextView
+                android:id="@+id/text1"
+                style="@style/MyStyle"
+                android:text="  В зависимости от того, какое число мы ввели будет выводится соответствующий результат или базовое значение. Эту же задачу можно выполнить при помощи else if, но тогда конструкция будет менее удобно в задании условий, так что вот такой перебор значений здесь оптимален. Это значит, что выбор использовать if или switch будет зависеть от вас. "/>
+
+            <TextView
+                android:id="@+id/text2"
+                style="@style/MyStyle"
+                android:textStyle="bold"
+                android:text="Замечание: break - прерывает значение case. Он обязателен."/>
+
+            <TextView
+                android:id="@+id/text3"
+                style="@style/MyStyle"
+                android:text="  Если вы выполняете одинаковые операции при разных значениях, то можно перечислить эти значения, а потом указать операции."/>
+
+            <ImageView
+                style="@style/Image"
+                app:srcCompat="@drawable/theme4_2" />
+
+            <TextView
+                android:id="@+id/text4"
+                style="@style/MyStyle"
+                android:text="  Напоследок стоит добавить про операторы прерывания и перехода. К ним относится break, который завершает выполнение конструкции. Также есть return, который завершает выполнение функции(с этим столкнемся позже) и goto, который переходит к конкретной метке. Вот пример: "/>
+
+            <ImageView
+                style="@style/Image"
+                app:srcCompat="@drawable/theme4_3" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  В данном случае если мы ввели '1', то выведится текст, а потом снова вернемся к строке для ввода. И думаю на этом все. Удачи!"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="\nПрактическое задание: Добавить обработку новых команд:
+
+\n'привет' - вывести 'Здравствуйте!'.
+\n'погода' - вывести 'Сегодня солнечно!' (или случайный вариант: солнечно/дождь/облачно).
+\n'время' - вывести текущее время (DateTime.Now)."/>
+
+            <TextView
+                android:id="@+id/codeView"
+                style="@style/Code" />
+
+            <Button
+                android:id="@+id/button"
+                style="@style/Button"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

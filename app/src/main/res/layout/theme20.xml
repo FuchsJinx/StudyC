@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Title"
+                android:text="LINQ"/>
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  LINQ (Language-Integrated Query) представляет простой и удобный язык запросов к источнику данных. В качестве источника данных может выступать объект, реализующий интерфейс IEnumerable (например, стандартные коллекции, массивы), набор данных DataSet, документ XML. Но вне зависимости от типа источника LINQ позволяет применить ко всем один и тот же подход для выборки данных."/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Разновидности LINQ:
+                \n - LINQ to Objects: применяется для работы с массивами и коллекциями
+                \n - LINQ to Entities: используется при обращении к базам данных через технологию Entity Framework
+                \n - LINQ to XML: применяется при работе с файлами XML
+                \n - LINQ to DataSet: применяется при работе с объектом DataSet
+                \n - Parallel LINQ (PLINQ): используется для выполнения параллельных запросов"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Для работы с коллекциями есть два метода:
+                \n - Операторы запросов LINQ
+                \n - Методы расширений LINQ"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Операторы запросов LINQ"/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme20_1"
+                android:layout_height="200dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="С помощью запросов LINQ программирование превращает в обычное изучение английского языка. Вот простейшая форма оператора запроса:
+                \nfrom переменная in набор_объектов select переменная;
+                \n\nМетоды расширений LINQ"/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme20_2"
+                android:layout_height="180dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Список используемых методов расширения LINQ:
+                        \n - Select: определяет проекцию выбранных значений
+                        \n - Where: определяет фильтр выборки
+                        \n - OrderBy: упорядочивает элементы по возрастанию
+                        \n - OrderByDescending: упорядочивает элементы по убыванию
+                        \n - ThenBy: задает дополнительные критерии для упорядочивания элементов возрастанию
+                        \n - ThenByDescending: задает дополнительные критерии для упорядочивания элементов по убыванию
+                        \n - Join: соединяет две коллекции по определенному признаку
+                        \n - Aggregate: применяет к элементам последовательности агрегатную функцию, которая сводит их к одному объекту
+                        \n - GroupBy: группирует элементы по ключу
+                        \n - ToLookup: группирует элементы по ключу, при этом все элементы добавляются в словарь
+                        \n - GroupJoin: выполняет одновременно соединение коллекций и группировку элементов по ключу
+                        \n - Reverse: располагает элементы в обратном порядке
+                        \n - All: определяет, все ли элементы коллекции удовлетворяют определенному условию
+                        \n - Any: определяет, удовлетворяет хотя бы один элемент коллекции определенному условию
+                        \n - Contains: определяет, содержит ли коллекция определенный элемент
+                        \n - Distinct: удаляет дублирующиеся элементы из коллекции
+                        \n - Except: возвращает разность двух коллекцию, то есть те элементы, которые создаются только в одной коллекции
+                        \n - Union: объединяет две однородные коллекции
+                        \n - Intersect: возвращает пересечение двух коллекций, то есть те элементы, которые встречаются в обоих коллекциях
+                        \n - Count: подсчитывает количество элементов коллекции, которые удовлетворяют определенному условию
+                        \n - Sum: подсчитывает сумму числовых значений в коллекции
+                        \n - Average: подсчитывает среднее значение числовых значений в коллекции
+                        \n - Min: находит минимальное значение
+                        \n - Max: находит максимальное значение
+                        \n - Take: выбирает определенное количество элементов
+                        \n - Skip: пропускает определенное количество элементов
+                        \n - TakeWhile: возвращает цепочку элементов последовательности, до тех пор, пока условие истинно
+                        \n - SkipWhile: пропускает элементы в последовательности, пока они удовлетворяют заданному условию, и затем возвращает оставшиеся элементы
+                        \n - Concat: объединяет две коллекции
+                        \n - Zip: объединяет две коллекции в соответствии с определенным условием
+                        \n - First: выбирает первый элемент коллекции
+                        \n - FirstOrDefault: выбирает первый элемент коллекции или возвращает значение по умолчанию
+                        \n - Single: выбирает единственный элемент коллекции, если коллекция содержит больше или меньше одного элемента, то генерируется исключение
+                        \n - SingleOrDefault: выбирает единственный элемент коллекции. Если коллекция пуста, возвращает значение по умолчанию. Если в коллекции больше одного элемента, генерирует исключение
+                        \n - ElementAt: выбирает элемент последовательности по определенному индексу
+                        \n - ElementAtOrDefault: выбирает элемент коллекции по определенному индексу или возвращает значение по умолчанию, если индекс вне допустимого диапазона
+                        \n - Last: выбирает последний элемент коллекции
+                        \n - LastOrDefault: выбирает последний элемент коллекции или возвращает значение по умолчанию"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Практическое задание: Создать список автомобилей класса Car. Выбрать из списка автомобили BMW и вывести всю информацию о них."/>
+
+            <TextView
+                android:id="@+id/codeView"
+                style="@style/Code"
+                android:minHeight="48dp" />
+
+            <Button
+                android:id="@+id/button"
+                style="@style/Button"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

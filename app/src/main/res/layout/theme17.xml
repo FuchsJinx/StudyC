@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Title"
+                android:text="Файлы"/>
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Файл – это набор данных, который хранится на внешнем запоминающем устройстве. Файл имеет имя и расширение. Расширение позволяет идентифицировать, какие данные и в каком формате хранятся в файле."/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Под работой над файлами подразумевается:
+                            \n - создание / удаление файлов
+                            \n - чтение / запись данных
+                            \n - изменение параметров"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Опорное хранилище - это конечная точка ввода-вывода: файл, сетевое подключение и т.д. Оно может представлять собой либо источник, из которого последовательно считываются байты, либо приемник, куда байты последовательно записываются, либо и то и другое вместе. Чтобы использовать опорное хранилище его нужно открыть. Этой цели и служат потоки, которые в .NET представлены библиотекой System.IO, содержащей методы для чтения, записи и позиционирования потоков."/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Поток— абстрактное представление последовательного устройства, облегчающее последовательное хранение данных и доступ к ним (по одному байту в каждый конкретный момент времени)."/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Основной функционал работы с файлами предствален классами File и FileInfo. Вот методы и свойства класса FileInfo:
+                            \n - CopyTo(path): копирует файл в новое место по указанному пути path
+                            \n - Create(): создает файл
+                            \n - Delete(): удаляет файл
+                            \n - MoveTo(destFileName): перемещает файл в новое место
+                            \n - Свойство Directory: получает родительский каталог в виде объекта DirectoryInfo
+                            \n - Свойство DirectoryName: получает полный путь к родительскому каталогу
+                            \n - Свойство Exists: указывает, существует ли файл
+                            \n - Свойство Length: получает размер файла
+                            \n - Свойство Extension: получает расширение файла
+                            \n - Свойство Name: получает имя файла
+                            \n -  Свойство FullName: получает полное имя файла
+                            \nКласс File предствален статическими методами:
+                            \n - Copy(): копирует файл в новое место
+                            \n - Create(): создает файл
+                            \n - Delete(): удаляет файл
+                            \n - Move: перемещает файл в новое место
+                            \n - Exists(file): определяет, существует ли файл
+                            \n - ReadAllText() - считывает весь файл в строку.
+                            \n - ReadAllLines() - считывает весь файл в массив строк
+                            \n - WriteAllText() - перезаписывает в существующий файл строку или создает новый
+                            \n - WriteAllLines() - записывает в существуюший файл массив строк или создает новый
+                            \n - Append() - записывает в конец файла текст
+                            \n  Вот пример работы с файлом: "/>
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme17_1"
+                android:layout_height="200dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Практическое задание: дан текстовый файл, состоящий из произвольного текста на английском языке, слова разделены пробелами. В каждом слове заменить первую букву на прописную. Обработанный текст записать в новый файл."/>
+
+            <TextView
+                android:id="@+id/codeView"
+                style="@style/Code"
+                android:minHeight="48dp" />
+
+            <Button
+                android:id="@+id/button"
+                style="@style/Button"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

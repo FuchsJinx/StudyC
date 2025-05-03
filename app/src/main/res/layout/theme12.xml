@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Title"
+                android:text="Классы"/>
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Сначала разберемся с Объекто-ориентированным программированием(ООП). Это методология прораммирования, которая ориентированная на представлении виртуальных структур в виде объектов с характеристиками и поведением. ООП базируется на четрых принципах: \n1. Абстракция - отделение важного от неважного для упрощения кодинга. \n2. Наследование - из названия понятно, что объект пожет наследоваться от чего-то и при этом сохранять характеристики и поведение родительской структуры, при этом внося что-то новое. \n3. Инкапсуляция - ограничение доступа к некоторым данным, чтобы например избежать ситуации, когда мы пытаемся сказать, что машина едет максимум 60, когда скорость уже 200. Это попросту создается невозможным. \n4. Полиморфизм - принцип, позволяющий использовать функции, носящие одинаковые названия. При этом выбор функции зависит от контекста использования. \nОсновной структурой в ООП является класс."/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Класс - абстрактный ссылочный тип данных, определенных пользователем. Он имеет поля, свойства, методы, конструкторы и деструкторы. Класс можно записать вне базового класса Programm или создать новый файл через обозреватель решений(Кликнуть на проект ПКМ -> Добавить -> Класс). Вот пример класса."/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme12_1"
+                android:layout_height="160dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Здесь \n1. _name - поле, причем закрытое. Красивым стилем является давать название закрытым полям с нижним подчеркиванием в начале, а название свойств с большой буквы. \n2. Year - свойство и об этом говорит {get; set;} причем также пожно зажавать параметры доступа перед get и set. get - возвращает значение свойства в программу, а set - задает значение свойтсва. \n3. public Car - это конструктор. Об этом говорит совпадение названия с классом. Конструкторы нужны для выделения памяти при создании объекта, а деструкторы для гарантированной очистки памяти. Также конструкторы используются для задания значения приватным полям. Ключевое слово this нужно, чтобы указать, что поле _name именно из этого класса. \n4. Print() - это метод. С эти вы уже знакомы. \n Вот пример работы с классом в основной программе: "/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme12_2"
+                android:layout_height="200dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Заметьте, что можно создавать массивы из собственных классов. В данном случае car - это объект(экземпляр) класса Car. "/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Теперь поговорим про абстрактные классы и наследование. Абстрактные классы - это классы, которые лишь объявляют методы, но не реализуют их. Вот пример абстрактного класса: "/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme12_3"
+                android:layout_height="250dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Во-первых, если не указать модификатор доступа, то он по умолчанию становится private \nНаследование может быть только от одного класса и осуществляется через символ : \nЧтобы переопределить метод и надо указать ключевое слово override, а у родительского метода должно быть ключевое слово virtual. Если же вам надо сохранить функцинальность родительского метода, то надо использовать ключевое слово base: "/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme12_4"
+                android:layout_height="220dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Практическое задание: Задание: класс «Покупатель»: Фамилия, Имя, Отчество, Адрес, Номер кредитной карточки, Номер банковского счета; Конструктор; Методы: установка значений полей(Пример: this._name = name), получение значений полей(Пример: return _name), вывод информации. Создать массив объектов данного класса. Вывести список покупателей в алфавитном порядке и список покупателей, у которых номер кредитной карточки находится в заданном диапазоне."/>
+
+            <TextView
+                android:id="@+id/codeView"
+                style="@style/Code"
+                android:minHeight="48dp" />
+
+            <Button
+                style="@style/Button"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

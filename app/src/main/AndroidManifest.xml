@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.C"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".themes.Theme1"/>
+        <activity android:name=".themes.Theme2"/>
+        <activity android:name=".themes.Theme3"/>
+        <activity android:name=".themes.Theme4"/>
+        <activity android:name=".themes.Theme5"/>
+        <activity android:name=".themes.Theme6"/>
+        <activity android:name=".themes.Theme7"/>
+        <activity android:name=".themes.Theme8"/>
+        <activity android:name=".themes.Theme9"/>
+        <activity android:name=".themes.Theme10"/>
+        <activity android:name=".themes.Theme11"/>
+        <activity android:name=".themes.Theme12"/>
+        <activity android:name=".themes.Theme13"/>
+        <activity android:name=".themes.Theme14"/>
+        <activity android:name=".themes.Theme15"/>
+        <activity android:name=".themes.Theme16"/>
+        <activity android:name=".themes.Theme17"/>
+        <activity android:name=".themes.Theme18"/>
+        <activity android:name=".themes.Theme19"/>
+        <activity android:name=".themes.Theme20"/>
+        <activity android:name=".themes.AllThemes"/>
+        <activity android:name=".themes.Exam"/>
+    </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+</manifest>

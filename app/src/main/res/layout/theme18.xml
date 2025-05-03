@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Title"
+                android:text="Списки"/>
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Список - это коллекция, он похож на массив, но отличается тем, что имеет динамические свойства. \nВот методы объявить список:"/>
+
+            <TextView
+                style="@style/Code"
+                android:text="List&lt;Type> list = new List&lt;Type>(); \nList&lt;Type> list = new List&lt;Type> (25); \nList&lt;string> names = new List&lt;string> {“Michael”, “Stefan”, “Mary”};"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  У класса List есть свойства необходимые для работы со списком:
+                            \n - Count – получает количество элементов списка;
+                            \n - Capacity – возвращает или задаёт количество элементов, которое список может вместить без изменения размера;
+                            \n - Item[int32] – возвращает или задает элемент по указанному индексу."/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Имеются и методы, организующие выполнение различных операций над списком, перечислим некоторые из них:
+                            \n - Add(T) – добавляет элемент к списку;
+                            \n - Clear() – очистка списка;
+                            \n - IndexOf(T) – возвращает индекс переданного элемента;
+                            \n - ElementAt(Int32) – возвращает элемент по индексу;
+                            \n - Insert(Int32, T) – вставляет элемент в указанную позицию;
+                            \n - Remove(T) – удаляет указанный элемент из списка;
+                            \n - RemoveAt(Int32) – удаляет элемент из заданной позиции;
+                            \n - Sort() – сортирует список;
+                            \n - Reverse() – меняет порядок расположения элементов на противоположный.
+                            \nВот пример работы со списком"/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme18_1"
+                android:layout_height="230dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="Практическое задание: Нужно создать программу для учета книг в библиотеке. Каждая книга имеет следующие характеристики:
+                            \n - Название
+                            \n - Автор
+                            \n - Год издания
+                            \n - Жанр (например: фантастика, детектив, учебник)
+                            \n - Статус (доступна/на руках) \n
+                            \nФункционал программы:
+                            \n - Добавление новой книги в каталог
+                            \n - Удаление книги из каталога
+                            \n - Поиск книги по:
+                            \n      Названию
+                            \n      Автору
+                            \n      Жанру
+                            \n      Году издания
+                            \n - Вывод всего каталога книг
+                            \n - Изменение статуса книги (выдача/возврат)
+                            \n - Статистика:
+                            \n      Количество доступных книг и книг на руках \n
+                            \nТребования:
+                            \n - Использовать List&lt;Book> для хранения книг
+                            \n - Реализовать все операции без LINQ (только циклы и условия)
+                            \n - Проверять входные данные (например, год издания не может быть будущим)"/>
+
+            <TextView
+                android:id="@+id/codeView"
+                style="@style/Code"
+                android:minHeight="48dp" />
+
+            <Button
+                android:id="@+id/button"
+                style="@style/Button"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

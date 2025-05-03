@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Title"
+                android:text="Явное и неявное преобразование"/>
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  Мы с вами проходили типы данны и знаем чем они отличаются. Так мы знаем, что нельзя записать double в int без класса Convert. Но это не совсем так. Действительно для конвертации лучше использовать специальный класс, но также нужно знать, что можно явно преобразовать данные. \n   Когда мы записывает double a = 120, то это значит, что 120 типа int неявно преобразуется в double. Так как длина int гораздо меньше double, то проблем не возникает, но обратное ситуация сложнее - это будет явное преобразование. Для того, чтобы это сделать нудно перед переменной, которую нам нудно преобразовать записать в скобочках тип, к которому мы преобразуем. Вы наверное сталкивались с этой проблемой если использовали float, потому что во float нельзя записать 120.0, так как тогда среда не поймет float это или double. Для этого можно укзать 120.0f и проблем не возникнет. Вот пример таких преобразоваий (этот код выведет 120): "/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme15_1"/>
+            
+            <TextView
+                style="@style/MyStyle"
+                android:text="  С этим мы разобрались. Такую же операцию можно проделывать с собственными классами и интерфейсами, но можно использовать и другой способ: is и as \n   is - проверяет может ли один тип быть пребразован в другой \n   as - преобразует объект слева к классу справа, если это невозможно, то принимает значение null. Давайте напишем классы для проверки того, как это работает: "/>
+            
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme15_2"
+                android:layout_height="170dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text=" Теперь после условия возможно ли преобразовать \n1 - дочерний класс к родительскому \n2 - один дочерний к другому \nмы преобразуем к родительскому классу и выведем результат"/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme15_3"
+                android:layout_height="240dp"/>
+
+            <TextView
+                style="@style/MyStyle"
+                android:text="  У нас получилось так, что дочерний объект можно преобразовать к родительскому классу, но преобразоать к другому дочернему не получится. А если преобразовать объект leopard к классу Animal и записать в объект animal, то будет использоваться метод из класса Leopard."/>
+
+            <ImageView
+                style="@style/Image"
+                android:src="@drawable/theme15_4"
+                android:layout_height="200dp"/>
+
+            <Button
+                style="@style/Button"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
