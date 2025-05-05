@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text"
+        style="@style/Title"
+        android:text="Чем отличаются структуры от классов?"/>
+    <Button
+        android:id="@+id/isFalse1"
+        android:layout_marginTop="50dp"
+        style="@style/Button"
+        android:text="👉 Ничем"/>
+
+    <Button
+        android:id="@+id/isFalse2"
+        style="@style/Button"
+        android:text="👉 Возможностью создания методов"/>
+
+    <Button
+        android:id="@+id/isRight"
+        style="@style/Button"
+        android:text="👉 Классы - тип ссылка, а структуры - тип значения"/>
+
+    <Button
+        android:id="@+id/isFalse3"
+        style="@style/Button"
+        android:text="👉 Класс удобней в использовании при описании характеристик"/>
+</LinearLayout>

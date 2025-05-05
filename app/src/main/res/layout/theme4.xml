@@ -45,7 +45,8 @@
                 android:id="@+id/text2"
                 style="@style/MyStyle"
                 android:textStyle="bold"
-                android:text="Замечание: break - прерывает значение case. Он обязателен."/>
+                android:text="Замечание: break - прерывает выполнения блока. Он обязателен.
+                        Кроме break также существует continue - это операция обратная break."/>
 
             <TextView
                 android:id="@+id/text3"

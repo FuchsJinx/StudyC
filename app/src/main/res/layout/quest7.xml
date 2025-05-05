@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text"
+        style="@style/Title"
+        android:text="Что значит, что массив - это ссылочный тип?"/>
+    <Button
+        android:id="@+id/isFalse1"
+        android:layout_marginTop="50dp"
+        style="@style/Button"
+        android:text="👉 Он передается только по ссылке"/>
+
+    <Button
+        android:id="@+id/isFalse2"
+        style="@style/Button"
+        android:text="👉 Он ссылается на другую переменную"/>
+
+    <Button
+        android:id="@+id/isRight"
+        style="@style/Button"
+        android:text="👉 Он ссылается на область памяти"/>
+
+    <Button
+        android:id="@+id/isFalse3"
+        style="@style/Button"
+        android:text="👉 Он ссылается на тип класса"/>
+</LinearLayout>

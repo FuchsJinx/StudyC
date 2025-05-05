@@ -13,7 +13,7 @@
         android:theme="@style/Theme.C"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".registration.SplashActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
@@ -44,6 +44,9 @@
         <activity android:name=".themes.Theme20"/>
         <activity android:name=".themes.AllThemes"/>
         <activity android:name=".themes.Exam"/>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".registration.RegistrationActivity"/>
+        <activity android:name=".registration.LoginActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 

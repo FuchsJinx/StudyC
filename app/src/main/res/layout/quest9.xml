@@ -1,33 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".themes.test.Quest1">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/text"
         style="@style/Title"
-        android:text="Какая команда отвечает за ввод текста пользователем?"/>
+        android:text="Как обратится к символу стрки, если она находится в массиве?"/>
     <Button
         android:id="@+id/isFalse1"
         android:layout_marginTop="50dp"
         style="@style/Button"
-        android:text="👉 Console.ReadKey()"/>
+        android:text="👉 строка[][]"/>
 
     <Button
         android:id="@+id/isRight"
         style="@style/Button"
-        android:text="👉 Console.ReadLine()"/>
+        android:text="👉 массив[][]"/>
 
     <Button
         android:id="@+id/isFalse2"
         style="@style/Button"
-        android:text="👉 Console.WriteLine()"/>
+        android:text="👉 массив[,]"/>
 
     <Button
         android:id="@+id/isFalse3"
         style="@style/Button"
-        android:text="👉 Convert.ToSingle()"/>
+        android:text="👉 строка[]"/>
 </LinearLayout>

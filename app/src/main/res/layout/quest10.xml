@@ -1,33 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".themes.test.Quest1">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/text"
         style="@style/Title"
-        android:text="Какая команда отвечает за ввод текста пользователем?"/>
+        android:text="Как узнать значение элемента MatchCollection?"/>
     <Button
         android:id="@+id/isFalse1"
         android:layout_marginTop="50dp"
         style="@style/Button"
-        android:text="👉 Console.ReadKey()"/>
-
-    <Button
-        android:id="@+id/isRight"
-        style="@style/Button"
-        android:text="👉 Console.ReadLine()"/>
-
-    <Button
-        android:id="@+id/isFalse2"
-        style="@style/Button"
-        android:text="👉 Console.WriteLine()"/>
+        android:text="👉 match.Key"/>
 
     <Button
         android:id="@+id/isFalse3"
         style="@style/Button"
-        android:text="👉 Convert.ToSingle()"/>
+        android:text="👉 match.Count"/>
+
+    <Button
+        android:id="@+id/isFalse2"
+        style="@style/Button"
+        android:text="👉 match.Length"/>
+
+    <Button
+        android:id="@+id/isRight"
+        style="@style/Button"
+        android:text="👉 match.Value"/>
 </LinearLayout>

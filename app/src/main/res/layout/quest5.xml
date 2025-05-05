@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text"
+        style="@style/Title"
+        android:text="В чем ключевое отличие while от do...while?"/>
+    <Button
+        android:id="@+id/isRight"
+        android:layout_marginTop="50dp"
+        style="@style/Button"
+        android:text="👉 В количестве обязательных выполнений"/>
+
+    <Button
+        android:id="@+id/isFalse1"
+        style="@style/Button"
+        android:text="👉 В максимальном количестве повторений"/>
+
+    <Button
+        android:id="@+id/isFalse2"
+        style="@style/Button"
+        android:text="👉 В названии"/>
+
+    <Button
+        android:id="@+id/isFalse3"
+        style="@style/Button"
+        android:text="👉 В возможности создания бесконечного цикла"/>
+</LinearLayout>
