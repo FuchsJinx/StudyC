@@ -48,13 +48,13 @@ public class LoginActivity extends AppCompatActivity {
             String sPassword = password.getText().toString();
 
             if (sEmail.isEmpty() || sPassword.isEmpty()) {
-                Toast.makeText(this, "Все поля должны быть заполнены", Toast.LENGTH_SHORT);
+                Toast.makeText(this, "Все поля должны быть заполнены", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             if (databaseHelper.checkUser(sEmail, sPassword)) {
                 SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-                prefs.edit().putBoolean("isLoggedIn", true).putString("username", sEmail).apply();
+                prefs.edit().putBoolean("isLoggedIn", true).putString("email", sEmail).apply();
 
                 //для выхода из аккаунта: logoutButton.setOnClickListener(v -> {
                 //    SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);

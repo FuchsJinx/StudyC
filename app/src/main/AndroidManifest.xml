@@ -47,7 +47,9 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".registration.RegistrationActivity"/>
         <activity android:name=".registration.LoginActivity"/>
+        <activity android:name=".registration.EditAccountActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
 </manifest>

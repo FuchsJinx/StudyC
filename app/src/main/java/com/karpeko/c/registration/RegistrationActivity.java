@@ -3,6 +3,7 @@ package com.karpeko.c.registration;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,11 +22,13 @@ public class RegistrationActivity extends AppCompatActivity {
     EditText name, email, group, password, confirmPassword;
     Button registration;
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "Range"})
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+
+        DatabaseHelper databaseHelper = new DatabaseHelper(this);
 
         toLogin = findViewById(R.id.toLogin);
 
@@ -36,8 +39,6 @@ public class RegistrationActivity extends AppCompatActivity {
         confirmPassword = findViewById(R.id.enterConfirmPassword);
 
         registration = findViewById(R.id.registration);
-
-        DatabaseHelper databaseHelper = new DatabaseHelper(this);
 
         toLogin.setOnClickListener(v -> {
             Intent intent = new Intent(this, LoginActivity.class);
@@ -54,10 +55,12 @@ public class RegistrationActivity extends AppCompatActivity {
 
             if (sName.isEmpty() || sEmail.isEmpty() || sGroup.isEmpty() || sPassword.isEmpty() || sConfirmPassword.isEmpty()) {
                 Toast.makeText(this, "Все поля должны быть заполнены", Toast.LENGTH_SHORT).show();
+                return;
             }
 
-            if (password != confirmPassword) {
+            if (!sPassword.equals(sConfirmPassword)) {
                 Toast.makeText(this, "Пароли не совпадают", Toast.LENGTH_SHORT).show();
+                return;
             }
 
             boolean inserted = databaseHelper.insertUser(sName, sEmail, sGroup, sPassword);
@@ -65,7 +68,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 Toast.makeText(this, "Рад знакомству, " + sName, Toast.LENGTH_SHORT).show();
 
                 SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-                prefs.edit().putBoolean("isLoggedIn", true).putString("username", sEmail).apply();
+                prefs.edit().putBoolean("isLoggedIn", true).putString("email", sEmail).apply();
 
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);

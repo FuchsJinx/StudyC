@@ -16,16 +16,27 @@ public class ThemeProgressViewModel extends ViewModel {
         return progress;
     }
 
-    public void updateProgress(Context context, int totalItems) {
+    /**
+     * Обновляет прогресс для конкретного пользователя.
+     * @param context контекст для доступа к SharedPreferences
+     * @param userId уникальный идентификатор пользователя (например, email)
+     * @param totalItems общее количество элементов для подсчёта прогресса
+     */
+    public void updateProgress(Context context, String userId, int totalItems) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("THEME_PROGRESS", Context.MODE_PRIVATE);
         Map<String, ?> allEntries = sharedPreferences.getAll();
+
         int completed = 0;
+        // Перебираем только записи, относящиеся к текущему пользователю
         for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
-            if (entry.getValue() instanceof Boolean && (Boolean) entry.getValue()) {
+            String key = entry.getKey();
+            // Предполагаем, что ключи имеют формат "userId_itemId"
+            if (key.startsWith(userId + "_") && entry.getValue() instanceof Boolean && (Boolean) entry.getValue()) {
                 completed++;
             }
         }
 
-        progress.setValue((int) (((float) completed / totalItems) * 100));
+        int percent = totalItems > 0 ? (int) (((float) completed / totalItems) * 100) : 0;
+        progress.setValue(percent);
     }
 }

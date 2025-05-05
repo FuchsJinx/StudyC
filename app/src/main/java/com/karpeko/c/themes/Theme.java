@@ -65,10 +65,23 @@ public class Theme extends AppCompatActivity {
     }
 
     public void shared(int index) {
+//        SharedPreferences sharedPreferences = getSharedPreferences("THEME_PROGRESS", Context.MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
+//        editor.putBoolean("theme_" + index + "_completed", true);
+//        editor.apply();
+
         SharedPreferences sharedPreferences = getSharedPreferences("THEME_PROGRESS", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("theme_" + index + "_completed", true);
+
+        String userId = getUserEmail(); // метод получения email текущего пользователя
+
+        String key = userId + "_theme_" + index + "_completed";
+        editor.putBoolean(key, true);
         editor.apply();
+    }
+    private String getUserEmail() {
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        return prefs.getString("email", null); // возвращает email или null, если нет
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.karpeko.c.ui.home;
 import static android.content.Context.MODE_PRIVATE;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.karpeko.c.databinding.FragmentHomeBinding;
 import com.karpeko.c.themes.ThemeProgressViewModel;
+import com.karpeko.c.themes.test.CountingResults;
 import com.karpeko.c.ui.home.theme.Theme;
 import com.karpeko.c.ui.home.theme.ThemeAdapter;
 
@@ -36,6 +38,9 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+        SharedPreferences prefs = getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String userId = prefs.getString("email", "default_user@example.com"); // или другой уникальный id
 
         viewModel = new ViewModelProvider(this).get(ThemeProgressViewModel.class);
         viewModel.getProgress().observe(getViewLifecycleOwner(), progress -> {
@@ -71,7 +76,7 @@ public class HomeFragment extends Fragment {
         themes.add(new Theme(21,"Все и сразу"));
         themes.add(new Theme(22,"Экзамен"));
 
-        viewModel.updateProgress(requireContext(), themes.size());
+        viewModel.updateProgress(getContext(), userId, themes.size());
 
         themeAdapter = new ThemeAdapter(themes, getContext());
         themeList.setAdapter(themeAdapter);
@@ -89,14 +94,17 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewModel.updateProgress(requireContext(), themes.size());
+        SharedPreferences prefs = getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String userId = prefs.getString("email", "default_user@example.com"); // или другой уникальный id
+        viewModel.updateProgress(getContext(), userId, themes.size());
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        viewModel.updateProgress(requireContext(), themes.size());
+        SharedPreferences prefs = getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String userId = prefs.getString("email", "default_user@example.com"); // или другой уникальный id
+        viewModel.updateProgress(getContext(), userId, themes.size());
+        CountingResults.isRightAnswer = 0;
     }
-
-    //массив - ссылочный тип. Как и класс. Кроме того описать наслдевоание свойства Ctrl+F5
 }

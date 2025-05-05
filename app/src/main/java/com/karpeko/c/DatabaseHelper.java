@@ -36,6 +36,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public boolean insertUser(String username, String email, String group, String password) {
+        if (!isEmailUnique(email)) {
+            // Email уже существует, регистрация невозможна
+            return false;
+        }
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, username);
@@ -52,5 +57,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         boolean exists = cursor.getCount() > 0;
         cursor.close();
         return exists;
+    }
+
+    public boolean updateUser(String oldEmail, String newUsername, String newEmail, String newGroup, String newPassword) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_2, newUsername);
+        contentValues.put(COL_3, newEmail);
+        contentValues.put(COL_4, newGroup);
+        contentValues.put(COL_5, newPassword);
+
+        int result = db.update(TABLE_NAME, contentValues, "EMAIL = ?", new String[]{oldEmail});
+        return result > 0; // true, если обновление прошло успешно
+    }
+
+    public Cursor getUserByEmail(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE EMAIL = ?", new String[]{email});
+        return cursor;
+    }
+
+    public boolean isEmailUnique(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE EMAIL = ?", new String[]{email});
+        boolean isUnique = cursor.getCount() == 0; // если записей с таким email нет - email уникален
+        cursor.close();
+        return isUnique;
     }
 }
