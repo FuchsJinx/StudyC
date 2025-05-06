@@ -48,6 +48,7 @@ public class FragmentLogout extends Fragment {
     ImageButton edit;
     private static final int PICK_IMAGE_REQUEST = 1;
     ImageView icon;
+    SharedPreferences prefs;
 
     @SuppressLint({"MissingInflatedId", "Range"})
     @Nullable
@@ -65,21 +66,7 @@ public class FragmentLogout extends Fragment {
 
         loadAvatarForUser();
 
-        DatabaseHelper databaseHelper = new DatabaseHelper(getContext());
-        SharedPreferences prefs = getContext().getSharedPreferences("MyPrefs", MODE_PRIVATE);
-        String userEmail = getUserEmail();
-
-        Cursor cursor = databaseHelper.getUserByEmail(userEmail);
-
-        if (cursor != null && cursor.moveToFirst()) {
-            String username = cursor.getString(cursor.getColumnIndex("USERNAME"));
-            String Group = cursor.getString(cursor.getColumnIndex("GROUPS"));
-
-            name.setText(username);
-            group.setText(Group);
-
-            cursor.close();
-        }
+        loadData();
 
         logout.setOnClickListener(v -> {
             prefs.edit().clear().apply();
@@ -180,5 +167,30 @@ public class FragmentLogout extends Fragment {
         inputStream.close();
 
         return file.getAbsolutePath();
+    }
+
+    @SuppressLint("Range")
+    private void loadData() {
+        DatabaseHelper databaseHelper = new DatabaseHelper(getContext());
+        prefs = getContext().getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String userEmail = getUserEmail();
+
+        Cursor cursor = databaseHelper.getUserByEmail(userEmail);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            String username = cursor.getString(cursor.getColumnIndex("USERNAME"));
+            String Group = cursor.getString(cursor.getColumnIndex("GROUPS"));
+
+            name.setText(username);
+            group.setText(Group);
+
+            cursor.close();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadData();
     }
 }

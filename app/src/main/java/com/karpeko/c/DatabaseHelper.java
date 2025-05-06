@@ -6,6 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.karpeko.c.ui.dashboard.Task;
+
+import java.util.List;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "UserDataBase.db";
@@ -17,7 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COL_5 = "PASSWORD";
 
     public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, 2);
     }
 
     @Override
@@ -27,11 +31,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "EMAIL TEXT, " +
                 "GROUPS TEXT, " +
                 "PASSWORD TEXT)");
+
+        db.execSQL("CREATE TABLE tasks (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "title TEXT, " +
+                "complete BOOLEAN, " +
+                "user_email TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS tasks");
         onCreate(db);
     }
 
