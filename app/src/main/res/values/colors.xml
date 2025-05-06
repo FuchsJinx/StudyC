@@ -8,4 +8,19 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00FFFFFF</color>
+
+    <!-- Основные цвета -->
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC6</color>
+
+    <!-- Текст и фон -->
+    <color name="textColorPrimary">#000000</color>
+    <color name="textColorSecondary">#757575</color>
+    <color name="backgroundColor">#FFFFFF</color>
+    <color name="surfaceColor">#FFFFFF</color>
+
+    <!-- Дополнительные цвета -->
+    <color name="errorColor">#B00020</color>
+    <color name="dividerColor">#E0E0E0</color>
 </resources>

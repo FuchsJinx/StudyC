@@ -16,12 +16,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -48,13 +51,52 @@ public class FragmentLogout extends Fragment {
     ImageButton edit;
     private static final int PICK_IMAGE_REQUEST = 1;
     ImageView icon;
-    SharedPreferences prefs;
+    SharedPreferences prefs, sharedPreferences;
+
+    private static final String PREFS_NAME = "ThemePrefs";
+    private static final String KEY_THEME = "isDarkTheme";
 
     @SuppressLint({"MissingInflatedId", "Range"})
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_logout, container, false);
+
+        // Загружаем сохраненную тему перед setContentView
+        sharedPreferences = requireActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        boolean isDarkTheme = sharedPreferences.getBoolean(KEY_THEME, false);
+
+        if (isDarkTheme) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            requireActivity().setTheme(R.style.AppTheme_Dark);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            requireActivity().setTheme(R.style.AppTheme_Light);
+        }
+
+        @SuppressLint("UseSwitchCompatOrMaterialCode") Switch themeSwitch = view.findViewById(R.id.themeSwitch);
+        themeSwitch.setChecked(isDarkTheme);
+
+        themeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Сохраняем выбор темы
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(KEY_THEME, isChecked);
+                editor.apply();
+
+                // Применяем тему
+                if (isChecked) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }
+
+                // Пересоздаем активность для применения темы
+                requireActivity().recreate();
+            }
+        });
+
         name = view.findViewById(R.id.username);
         group = view.findViewById(R.id.group);
         logout = view.findViewById(R.id.logout);

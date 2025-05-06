@@ -66,4 +66,18 @@
         <item name="minHeight">48dp</item>
     </style>
 
+    <!-- Light theme -->
+    <style name="AppTheme.Light" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- Dark theme -->
+    <style name="AppTheme.Dark" parent="Theme.MaterialComponents">
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
 </resources>
