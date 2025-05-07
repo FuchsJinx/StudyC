@@ -6,12 +6,10 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="299dp"
-        android:layout_height="45dp"
+        style="@style/Title"
         android:layout_marginTop="63dp"
         android:gravity="center"
         android:text="Изменение"
-        android:textColor="@color/black"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
