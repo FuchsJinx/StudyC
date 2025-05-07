@@ -7,17 +7,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.karpeko.c.R;
 import com.karpeko.c.databinding.FragmentDashboardBinding;
 import com.karpeko.c.ui.notifications.FragmentLogin;
-import com.karpeko.c.ui.notifications.FragmentLogout;
 
 public class DashboardFragment extends Fragment {
 
@@ -32,14 +29,10 @@ public class DashboardFragment extends Fragment {
         boolean isLoggedIn = prefs.getBoolean("isLoggedIn", false);
 
         if(!isLoggedIn){
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.fragment_container, new FragmentLogin());
-            ft.commit();
+            transaction(new FragmentLogin());
         }
         else {
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.fragment_container, new TasksFragment());
-            ft.commit();
+            transaction(new TasksFragment());
         }
 
         return root;
@@ -49,5 +42,11 @@ public class DashboardFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    private void transaction(Fragment fragment) {
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_container, fragment);
+        ft.commit();
     }
 }

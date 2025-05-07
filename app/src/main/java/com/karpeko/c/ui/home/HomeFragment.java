@@ -1,8 +1,5 @@
 package com.karpeko.c.ui.home;
 
-import static android.content.Context.MODE_PRIVATE;
-
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -26,7 +23,6 @@ import com.karpeko.c.ui.home.theme.ThemeAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
@@ -94,17 +90,19 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        SharedPreferences prefs = getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        String userId = prefs.getString("email", "default_user@example.com"); // или другой уникальный id
-        viewModel.updateProgress(getContext(), userId, themes.size());
+        progress();
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        progress();
+        CountingResults.isRightAnswer = 0;
+    }
+
+    private void progress() {
         SharedPreferences prefs = getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String userId = prefs.getString("email", "default_user@example.com"); // или другой уникальный id
         viewModel.updateProgress(getContext(), userId, themes.size());
-        CountingResults.isRightAnswer = 0;
     }
 }

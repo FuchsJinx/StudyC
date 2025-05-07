@@ -14,6 +14,4 @@ public class Theme {
     public int getId() { return id; }
     public String getTitle() {return title;}
 
-    public boolean isChecked() { return isChecked; }
-    public void setChecked(boolean checked) { isChecked = checked; }
 }

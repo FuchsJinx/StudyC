@@ -43,14 +43,7 @@ public class TasksFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tasks, container, false);
 
         databaseHelper = new DatabaseHelper(getContext());
-        SharedPreferences prefs = getContext().getSharedPreferences("MyPrefs", MODE_PRIVATE);
         currentUserEmail = getUserEmail();
-
-//        // Получаем email текущего пользователя (передается из активности)
-//        Bundle args = getArguments();
-//        if (args != null) {
-//            currentUserEmail = args.getString("user_email");
-//        }
 
         databaseHelper = new DatabaseHelper(getActivity());
 

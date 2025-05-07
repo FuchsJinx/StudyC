@@ -7,7 +7,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -25,18 +24,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.karpeko.c.DatabaseHelper;
-import android.Manifest;
 import android.widget.Toast;
 
 import com.karpeko.c.R;
 import com.karpeko.c.registration.EditAccountActivity;
-import com.karpeko.c.registration.LoginActivity;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -112,11 +107,6 @@ public class FragmentLogout extends Fragment {
 
         logout.setOnClickListener(v -> {
             prefs.edit().clear().apply();
-
-//            Intent intent = new Intent(getContext(), LoginActivity.class);
-//            startActivity(intent);
-//            requireActivity().finish();
-
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.fragment_container, new FragmentLogin());
             ft.commit();

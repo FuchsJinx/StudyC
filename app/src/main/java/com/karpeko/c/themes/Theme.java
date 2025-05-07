@@ -65,11 +65,6 @@ public class Theme extends AppCompatActivity {
     }
 
     public void shared(int index) {
-//        SharedPreferences sharedPreferences = getSharedPreferences("THEME_PROGRESS", Context.MODE_PRIVATE);
-//        SharedPreferences.Editor editor = sharedPreferences.edit();
-//        editor.putBoolean("theme_" + index + "_completed", true);
-//        editor.apply();
-
         SharedPreferences sharedPreferences = getSharedPreferences("THEME_PROGRESS", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
