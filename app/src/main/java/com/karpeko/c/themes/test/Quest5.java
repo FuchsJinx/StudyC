@@ -7,10 +7,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import com.karpeko.c.R;
-import com.karpeko.c.databinding.Quest1Binding;
 
 public class Quest5 extends Quest {
 

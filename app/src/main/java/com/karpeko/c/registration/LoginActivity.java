@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.IntRange;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,18 +28,15 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        DatabaseHelper databaseHelper = new DatabaseHelper(this);
-
         toRegistration = findViewById(R.id.toRegistration);
-
         email = findViewById(R.id.enterEmail);
         password = findViewById(R.id.enterPassword);
-
         login = findViewById(R.id.login);
 
+        DatabaseHelper databaseHelper = new DatabaseHelper(this);
+
         toRegistration.setOnClickListener(v -> {
-            Intent intent = new Intent(this, RegistrationActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(this, RegistrationActivity.class));
         });
 
         login.setOnClickListener(v -> {
@@ -55,13 +51,6 @@ public class LoginActivity extends AppCompatActivity {
             if (databaseHelper.checkUser(sEmail, sPassword)) {
                 SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
                 prefs.edit().putBoolean("isLoggedIn", true).putString("email", sEmail).apply();
-
-                //для выхода из аккаунта: logoutButton.setOnClickListener(v -> {
-                //    SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-                //    prefs.edit().clear().apply();
-                //    startActivity(new Intent(this, LoginActivity.class));
-                //    finish();
-                //});
 
                 startActivity(new Intent(this, MainActivity.class));
                 finish();

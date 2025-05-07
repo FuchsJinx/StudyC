@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 
 import com.karpeko.c.R;
 
+import org.w3c.dom.Text;
+
 public class AllThemes extends Theme {
 
     String videoId = "w8rRhAup4kg";

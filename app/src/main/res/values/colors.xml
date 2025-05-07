@@ -23,4 +23,9 @@
     <!-- Дополнительные цвета -->
     <color name="errorColor">#B00020</color>
     <color name="dividerColor">#E0E0E0</color>
+
+    <color name="background">#F5F5F5</color>
+    <color name="primary">#6200EE</color>
+    <color name="primaryText">#212121</color>
+    <color name="secondaryText">#757575</color>
 </resources>

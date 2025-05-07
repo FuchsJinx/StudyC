@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.karpeko.c.R;
-import com.karpeko.c.databinding.Quest1Binding;
 
 public class Quest11 extends Quest {
 

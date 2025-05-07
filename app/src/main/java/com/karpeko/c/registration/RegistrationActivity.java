@@ -3,7 +3,6 @@ package com.karpeko.c.registration;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,8 +27,6 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-        DatabaseHelper databaseHelper = new DatabaseHelper(this);
-
         toLogin = findViewById(R.id.toLogin);
 
         name = findViewById(R.id.enterFIO);
@@ -40,9 +37,10 @@ public class RegistrationActivity extends AppCompatActivity {
 
         registration = findViewById(R.id.registration);
 
+        DatabaseHelper databaseHelper = new DatabaseHelper(this);
+
         toLogin.setOnClickListener(v -> {
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(this, LoginActivity.class));
             finish();
         });
 
@@ -70,8 +68,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
                 prefs.edit().putBoolean("isLoggedIn", true).putString("email", sEmail).apply();
 
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(this, MainActivity.class));
                 finish();
             }
             else {

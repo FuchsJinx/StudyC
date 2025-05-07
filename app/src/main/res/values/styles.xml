@@ -12,7 +12,7 @@
 
     </style>
     
-    <style name="Title" parent="Theme.MaterialComponents.DayNight" >
+    <style name="Title" parent="Theme.MaterialComponents" >
         <item name="android:layout_marginTop">15dp</item>
         <item name="android:layout_width">300dp</item>
         <item name="android:layout_height">wrap_content</item>
@@ -35,7 +35,7 @@
     
     <style name="Button" parent="Theme.MaterialComponents.DayNight">
         <item name="android:id">@id/button</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">200dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_marginBottom">40dp</item>
@@ -61,7 +61,6 @@
         <item name="android:text">Показать решение...</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
-        <item name="android:textColor">@color/black</item>
         <item name="android:typeface">monospace</item>
         <item name="minHeight">48dp</item>
     </style>

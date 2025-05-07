@@ -29,6 +29,7 @@ public class EditAccountActivity extends AppCompatActivity {
         email = findViewById(R.id.enterEmail);
         group = findViewById(R.id.enterGroup);
         password = findViewById(R.id.enterPassword);
+        edit = findViewById(R.id.edit);
 
         DatabaseHelper databaseHelper = new DatabaseHelper(this);
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
@@ -50,16 +51,13 @@ public class EditAccountActivity extends AppCompatActivity {
             cursor.close();
         }
 
-        edit = findViewById(R.id.edit);
-
         edit.setOnClickListener(v -> {
-            String oldEmail = userEmail;
             String newUsername = name.getText().toString();
             String newEmail = email.getText().toString();
             String newGroup = group.getText().toString();
             String newPassword = password.getText().toString();
 
-            boolean updated = databaseHelper.updateUser(oldEmail, newUsername, newEmail, newGroup, newPassword);
+            boolean updated = databaseHelper.updateUser(userEmail, newUsername, newEmail, newGroup, newPassword);
             if (updated) {
                 Toast.makeText(this, "Данные изменены", Toast.LENGTH_SHORT).show();
             } else {

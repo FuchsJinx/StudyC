@@ -12,9 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.karpeko.c.R;
-import com.karpeko.c.databinding.Quest1Binding;
-
-import java.util.Objects;
 
 public class Quest extends Fragment {
 
