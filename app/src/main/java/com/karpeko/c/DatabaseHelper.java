@@ -90,4 +90,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return isUnique;
     }
+
+    // Новый метод для удаления аккаунта по email
+    public boolean deleteAccount(String email) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Удаляем пользователя
+        int result = db.delete(TABLE_NAME, "EMAIL = ?", new String[]{email});
+        // Также можно удалить связанные задачи пользователя
+        db.delete("tasks", "user_email = ?", new String[]{email});
+        return result > 0; // true, если удаление прошло успешно
+    }
+
+    public boolean checkPassword(String email, String passwordToCheck) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(
+                "SELECT " + COL_5 + " FROM " + TABLE_NAME + " WHERE " + COL_3 + " = ?",
+                new String[]{email}
+        );
+
+        if (cursor.moveToFirst()) {
+            String storedPassword = cursor.getString(0); // Получаем сохранённый пароль из базы
+            cursor.close();
+            return storedPassword.equals(passwordToCheck); // Сравниваем пароли
+        }
+
+        cursor.close();
+        return false; // Пользователь не найден
+    }
 }

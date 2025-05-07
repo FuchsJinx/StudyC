@@ -18,7 +18,7 @@ import com.karpeko.c.R;
 
 public class LoginActivity extends AppCompatActivity {
 
-    TextView toRegistration;
+    TextView toRegistration, notLogin;
     EditText email, password;
     Button login;
 
@@ -28,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        notLogin = findViewById(R.id.notLogin);
         toRegistration = findViewById(R.id.toRegistration);
         email = findViewById(R.id.enterEmail);
         password = findViewById(R.id.enterPassword);
@@ -37,6 +38,11 @@ public class LoginActivity extends AppCompatActivity {
 
         toRegistration.setOnClickListener(v -> {
             startActivity(new Intent(this, RegistrationActivity.class));
+        });
+
+        notLogin.setOnClickListener(v -> {
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
         });
 
         login.setOnClickListener(v -> {

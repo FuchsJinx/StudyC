@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -16,22 +18,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.karpeko.c.DatabaseHelper;
 import android.widget.Toast;
 
 import com.karpeko.c.R;
 import com.karpeko.c.registration.EditAccountActivity;
+import com.karpeko.c.themes.ThemeProgressViewModel;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -41,13 +48,12 @@ import java.io.OutputStream;
 
 public class FragmentLogout extends Fragment {
 
-    TextView name, group;
+    TextView name, group, delete;
     Button logout;
     ImageButton edit;
     private static final int PICK_IMAGE_REQUEST = 1;
     ImageView icon;
     SharedPreferences prefs, sharedPreferences;
-
     private static final String PREFS_NAME = "ThemePrefs";
     private static final String KEY_THEME = "isDarkTheme";
 
@@ -96,6 +102,7 @@ public class FragmentLogout extends Fragment {
         group = view.findViewById(R.id.group);
         logout = view.findViewById(R.id.logout);
         icon = view.findViewById(R.id.icon);
+        delete = view.findViewById(R.id.delete);
 
         icon.setOnClickListener(v -> {
             openImageChooser();
@@ -116,6 +123,10 @@ public class FragmentLogout extends Fragment {
         edit.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), EditAccountActivity.class);
             startActivity(intent);
+        });
+
+        delete.setOnClickListener(v -> {
+            showDeleteTaskDialog();
         });
 
         return view;
@@ -224,5 +235,44 @@ public class FragmentLogout extends Fragment {
     public void onResume() {
         super.onResume();
         loadData();
+    }
+
+    private void showDeleteTaskDialog() {
+        DatabaseHelper databaseHelper = new DatabaseHelper(getContext());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        LayoutInflater inflater = requireActivity().getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_delete_account, null);
+
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) final EditText passwordInput = dialogView.findViewById(R.id.task_input);
+        String email = getUserEmail();
+
+        builder.setView(dialogView)
+                .setTitle("Подтвердите удаление")
+                .setPositiveButton("Удалить", (dialog, which) -> {
+                    String password = passwordInput.getText().toString().trim();
+                    if (!password.isEmpty() && databaseHelper.checkPassword(email, password)) {
+                        boolean isDeleted = databaseHelper.deleteAccount(email); // sEmail - email пользователя
+                        if (isDeleted) {
+                            // Успешно удалено
+                            SharedPreferences prefs = requireActivity().getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                            prefs.edit()
+                                    .remove("isLoggedIn")  // Удалить флаг входа
+                                    .remove("email")       // Удалить сохранённый email
+                                    .apply();              // Применить изменения
+                            Toast.makeText(getContext(), "Аккаунт удалён", Toast.LENGTH_SHORT).show();
+                            getFragmentManager().beginTransaction()
+                                    .replace(R.id.fragment_container, new FragmentLogin())
+                                    .commit();
+                        } else {
+                            // Ошибка удаления
+                            Toast.makeText(getContext(), "Ошибка удаления аккаунта", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(getActivity(), "Введите пароль", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton("Отмена", (dialog, which) -> dialog.cancel());
+
+        builder.create().show();
     }
 }

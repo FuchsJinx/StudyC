@@ -94,14 +94,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enterConfirmPassword" />
 
+    <TextView
+        android:id="@+id/notLogin"
+        android:layout_width="294dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="156dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="Продолжить без аккаунта"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enterConfirmPassword"
+        android:gravity="center"/>
+
     <Button
         android:id="@+id/registration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="138dp"
         android:text="Зарегистрироваться"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toLogin" />
