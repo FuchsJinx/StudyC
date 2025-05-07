@@ -50,19 +50,19 @@
         <item name="android:layout_gravity">center</item>
     </style>
 
-    <style name="Code" parent="Theme.MaterialComponents.DayNight" >
+    <style name="Code" parent="Theme.MaterialComponents.Light">
         <item name="android:textSize">12sp</item>
-        <item name="android:layout_marginRight">8dp</item>
         <item name="android:layout_width">330dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_marginTop">20dp</item>
-        <item name="android:layout_marginLeft">10sp</item>
+        <item name="android:layout_marginLeft">10dp</item>  <!-- Исправлено: dp вместо sp -->
+        <item name="android:layout_marginRight">8dp</item>
         <item name="android:text">Показать решение...</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="android:typeface">monospace</item>
-        <item name="minHeight">48dp</item>
+        <item name="android:minHeight">48dp</item>  <!-- Добавлено android: -->
     </style>
 
     <!-- Light theme -->

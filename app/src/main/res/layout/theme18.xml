@@ -29,9 +29,10 @@
 
             <TextView
                 style="@style/MyStyle"
-                android:text="  Список - это коллекция, он похож на массив, но отличается тем, что имеет динамические свойства. \nВот методы объявить список:"/>
+                android:text="  Список - это коллекция, он похож на массив, но отличается тем, что имеет динамические свойства. \nВот способы объявить список:"/>
 
             <TextView
+                android:id="@+id/c1"
                 style="@style/Code"
                 android:text="List&lt;Type> list = new List&lt;Type>(); \nList&lt;Type> list = new List&lt;Type> (25); \nList&lt;string> names = new List&lt;string> {“Michael”, “Stefan”, “Mary”};"/>
 

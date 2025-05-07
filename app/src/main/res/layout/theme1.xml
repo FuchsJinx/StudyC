@@ -18,12 +18,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-<!--            <VideoView-->
-<!--                android:id="@+id/videoView"-->
-<!--                android:layout_width="300dp"-->
-<!--                android:layout_height="150dp"-->
-<!--                android:layout_gravity="center"/>-->
-
             <TextView
                 style="@style/Title"
                 android:text="Знакомство с Visual Studio"/>
@@ -36,7 +30,7 @@
 
             <TextView
                 style="@style/MyStyle"
-                android:text="    Привет! Давай вначале разберемся с средой разработки(IDE), где мы дальше будем писать наши программы! \n    Зайжите на официалльный сайт Microsoft и выберите установку Visual Studio Community - это бесплатная версия для разработчиков. Дождитесь окончания скачивания." />
+                android:text="    Привет! Давай вначале разберемся со средой разработки(IDE), где мы дальше будем писать наши программы! \n    Зайдите на официальный сайт Microsoft и выберите установку Visual Studio Community - это бесплатная версия для разработчиков. Дождитесь окончания скачивания." />
 
             <ImageView
                 android:layout_height="200dp"
@@ -54,7 +48,7 @@
 
             <TextView
                 style="@style/MyStyle"
-                android:text="  Далее выберите язык и путь установки. После завершения установки выберите создание нового проекта. " />
+                android:text="  Далее выберите язык и путь установки. После завершения установки - выберите создание нового проекта. " />
 
             <ImageView
                 android:layout_height="250dp"
@@ -63,7 +57,7 @@
 
             <TextView
                 style="@style/MyStyle"
-                android:text="  Далее введите в строку поиска 'Консольное приложение' и убедитесь, что выбран фреймворк .Net. После этого введите название пректа и выберите путь сохранения." />
+                android:text="  Далее введите в строку поиска ''Консольное приложение'' и убедитесь, что выбран фреймворк .Net. После этого введите название проекта и выберите путь сохранения." />
 
             <ImageView
                 android:layout_height="200dp"
@@ -72,7 +66,7 @@
 
             <TextView
                 style="@style/MyStyle"
-                android:text="  На этом в общем все. Но я так же добавлю о способо ввода и выаода иноформации." />
+                android:text="  На этом в общем все. Но я так же добавлю о способе ввода и вывода иноформации." />
 
             <ImageView
                 android:layout_height="200dp"
@@ -81,12 +75,13 @@
 
             <TextView
                 style="@style/MyStyle"
-                android:text="  Ввод осуществляется через команду Console.ReadLine(), а конвертирование к нужному типу данных через Convert.(необходимый метод). Например ввод целого числа будет выглядеть так: int n = Convert.ToInt32(Console.ReadLine()); А вывод информации с помощью Console.Write('текст') или Console.WriteLine('текст').  Кстати, чтобы быстро вызвать Console.WriteLine() можно написать cw и два раза нажать Tab). После исполнения программа быстро закрывается и мы не успеваем увидеть результат, чтобы этого избежать мы можем записать Console.ReadKey() или запустить программу комбинацией Ctrl+F5. А если у вас вместо русских букв выводятся знаки вопроса, то введите следующее:"/>
+                android:text="  Ввод осуществляется через команду Console.ReadLine(), а конвертирование к нужному типу данных через Convert.(необходимый метод). Например ввод целого числа будет выглядеть так: int n = Convert.ToInt32(Console.ReadLine());. А вывод информации с помощью Console.Write(''текст'') или Console.WriteLine(''текст'').  Кстати, чтобы быстро вызвать Console.WriteLine() можно написать cw и два раза нажать Tab). После исполнения программа быстро закрывается и мы не успеваем увидеть результат, чтобы этого избежать мы можем записать Console.ReadKey() или запустить программу комбинацией Ctrl+F5. А если у вас вместо русских букв выводятся знаки вопроса, то введите следующее:"/>
 
             <TextView
+                android:id="@+id/c1"
                 style="@style/Code"
                 android:text="Console.InputEncoding = Encoding.UTF8;
-\nConsole.OutputEncoding = Encoding.UTF8;"/>
+                        \nConsole.OutputEncoding = Encoding.UTF8;"/>
 
             <TextView
                 style="@style/MyStyle"

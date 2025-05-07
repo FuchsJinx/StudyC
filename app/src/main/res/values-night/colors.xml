@@ -24,4 +24,6 @@
   <color name="errorColor">#CF6679</color>
   <color name="dividerColor">#424242</color>
 
+  <color name="text_code" tools:ignore="MissingDefaultResource">#5C2D91</color>
+
 </resources>

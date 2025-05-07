@@ -2,12 +2,14 @@ package com.karpeko.c.themes;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.karpeko.c.R;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
@@ -21,6 +23,8 @@ public class Theme extends AppCompatActivity {
     protected boolean isClicked = false;
     Button button;
     TextView codeView;
+    private static final String PREFS_NAME = "ThemePrefs";
+    private static final String KEY_THEME = "isDarkTheme";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,6 +48,19 @@ public class Theme extends AppCompatActivity {
 
     protected void viewAnswer(String code) {
         codeView = findViewById(R.id.codeView);
+
+        SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        boolean isDarkTheme = sharedPreferences.getBoolean(KEY_THEME, false);
+
+        if (isDarkTheme) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            setTheme(R.style.AppTheme_Dark);
+            codeView.setTextColor(Color.WHITE);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            setTheme(R.style.AppTheme_Light);
+            codeView.setTextColor(Color.BLACK);
+        }
         codeView.setOnClickListener(v -> {
             if (!isClicked) {
                 isClicked = true;
