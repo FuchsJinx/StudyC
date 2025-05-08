@@ -2,12 +2,14 @@ package com.karpeko.c.registration;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -26,10 +28,28 @@ public class SplashActivity extends AppCompatActivity {
     SharedPreferences prefs, sharedPreferences;
     private static final String PREFS_NAME = "ThemePrefs";
     private static final String KEY_THEME = "isDarkTheme";
+    LottieAnimationView animationView;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash);
+
+        View view = findViewById(R.id.view);
+        view.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+            @Override
+            public boolean onPreDraw() {
+                view.getViewTreeObserver().removeOnPreDrawListener(this);
+                // Запуск анимации после того как view готова к отображению
+                Animation fadeIn = AnimationUtils.loadAnimation(getBaseContext(), R.anim.fade_in_start);
+                animationView = findViewById(R.id.animation_view);
+                animationView.startAnimation(fadeIn);
+                animationView.playAnimation();
+                return true;
+            }
+        });
+
 
         // Полноэкранный режим (скрывает status и navigation bar)
         getWindow().getDecorView().setSystemUiVisibility(
@@ -46,13 +66,6 @@ public class SplashActivity extends AppCompatActivity {
             getWindow().setDecorFitsSystemWindows(false);
         }
 
-        setContentView(R.layout.activity_splash);
-
-        Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in_start);
-        LottieAnimationView view = findViewById(R.id.animation_view);
-        view.startAnimation(fadeIn);
-        view.playAnimation();
-
 
         // Задержка в 3 секунды (3000 миллисекунд)
         new Handler().postDelayed(new Runnable() {
@@ -64,7 +77,7 @@ public class SplashActivity extends AppCompatActivity {
                 // Пользователь уже вошёл, переходим на MainActivity
                 // Пользователь не вошёл, переходим на LoginActivity
                 if (isLoggedIn) {
-                    view.pauseAnimation();
+                    animationView.pauseAnimation();
                     startActivity(new Intent(SplashActivity.this, MainActivity.class));
                 } else {
                     startActivity(new Intent(SplashActivity.this, RegistrationActivity.class));
