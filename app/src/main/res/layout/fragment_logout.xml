@@ -80,8 +80,9 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logout"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
-<!--        android:thumbTint="@color/black"    />-->
+        tools:ignore="UseSwitchCompatOrMaterialXml"
+        android:thumbTint="#FFA3F0"
+        android:trackTint="@color/colorTrack"/>
 
     <TextView
         android:id="@+id/delete"

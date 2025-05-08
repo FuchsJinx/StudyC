@@ -40,6 +40,7 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_marginBottom">40dp</item>
         <item name="android:text">Завершить</item>
+        <item name="android:textColor">#B000FF</item>
     </style>
 
     <style name="Theme" parent="Theme.MaterialComponents.DayNight" >
@@ -70,6 +71,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
     <!-- Dark theme -->
@@ -77,6 +79,7 @@
         <item name="colorPrimary">@color/colorPrimaryDark</item>
         <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
 </resources>

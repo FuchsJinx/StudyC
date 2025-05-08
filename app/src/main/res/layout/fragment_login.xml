@@ -21,5 +21,7 @@
         android:layout_marginTop="300dp"
         android:minHeight="48dp"
         android:text="Темная тема"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+        tools:ignore="UseSwitchCompatOrMaterialXml"
+        android:thumbTint="#FFA3F0"
+        android:trackTint="@color/colorTrack"/>
 </LinearLayout>
