@@ -38,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
 
         toRegistration.setOnClickListener(v -> {
             startActivity(new Intent(this, RegistrationActivity.class));
+            finish();
         });
 
         notLogin.setOnClickListener(v -> {
