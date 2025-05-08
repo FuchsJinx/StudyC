@@ -1,5 +1,7 @@
 package com.karpeko.c.ui.home;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
@@ -8,8 +10,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.OvershootInterpolator;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.karpeko.c.databinding.FragmentHomeBinding;
 import com.karpeko.c.themes.ThemeProgressViewModel;
 import com.karpeko.c.themes.test.CountingResults;
@@ -42,11 +44,12 @@ public class HomeFragment extends Fragment {
         SharedPreferences prefs = getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String userId = prefs.getString("email", "default_user@example.com"); // или другой уникальный id
 
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
         viewModel = new ViewModelProvider(this).get(ThemeProgressViewModel.class);
         viewModel.getProgress().observe(getViewLifecycleOwner(), progress -> {
             ProgressBar progressBar = binding.progressBar;
-//            progressBar.setProgress(progress);
-            // Анимация заполнения + масштабирования
             ObjectAnimator progressAnim = ObjectAnimator.ofInt(progressBar, "progress", 0, progress);
             ObjectAnimator scaleXAnim = ObjectAnimator.ofFloat(progressBar, "scaleX", 1f, 1.05f, 1f);
             ObjectAnimator scaleYAnim = ObjectAnimator.ofFloat(progressBar, "scaleY", 1f, 1.05f, 1f);
@@ -55,10 +58,24 @@ public class HomeFragment extends Fragment {
             set.playTogether(progressAnim, scaleXAnim, scaleYAnim);
             set.setDuration(1200);
             set.start();
-        });
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+            if (progress == 100) {
+                LottieAnimationView animationView = binding.animationView;
+                animationView.setVisibility(View.VISIBLE);
+                animationView.playAnimation();
+                animationView.addAnimatorListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        animationView.animate()
+                                .alpha(0f)
+                                .setDuration(300)
+                                .setInterpolator(new AccelerateInterpolator())
+                                .withEndAction(() -> animationView.setVisibility(View.GONE))
+                                .start();
+                    }
+                });
+            }
+        });
 
         themeList = binding.list;
         themes = new ArrayList<>();
@@ -85,7 +102,7 @@ public class HomeFragment extends Fragment {
         themes.add(new Theme(21,"Все и сразу"));
         themes.add(new Theme(22,"Экзамен"));
 
-        viewModel.updateProgress(getContext(), userId, themes.size());
+        viewModel.updateProgress(getContext(), userId, themes.size() - 1);
 
         themeAdapter = new ThemeAdapter(themes, getContext());
         themeList.setAdapter(themeAdapter);
@@ -116,6 +133,6 @@ public class HomeFragment extends Fragment {
     private void progress() {
         SharedPreferences prefs = getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String userId = prefs.getString("email", "default_user@example.com"); // или другой уникальный id
-        viewModel.updateProgress(getContext(), userId, themes.size());
+        viewModel.updateProgress(getContext(), userId, themes.size() - 1);
     }
 }

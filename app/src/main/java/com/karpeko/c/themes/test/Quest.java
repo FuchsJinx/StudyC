@@ -57,8 +57,7 @@ public class Quest extends Fragment {
             // Добавляем иконку правильного ответа
             isRightButton.setCompoundDrawablesWithIntrinsicBounds(
                     null, null,
-//                    AppCompatResources.getDrawable(getContext(), R.drawable.ic_check),
-                    AppCompatResources.getDrawable(getContext(), R.drawable.ic_dashboard_black_24dp),
+                    AppCompatResources.getDrawable(getContext(), R.drawable.check),
                     null
             );
 
@@ -87,14 +86,12 @@ public class Quest extends Fragment {
             // Добавляем иконки
             clickedButton.setCompoundDrawablesWithIntrinsicBounds(
                     null, null,
-//                    AppCompatResources.getDrawable(getContext(), R.drawable.ic_close),
-                    AppCompatResources.getDrawable(getContext(), R.drawable.ic_home_black_24dp),
+                    AppCompatResources.getDrawable(getContext(), R.drawable.fail),
                     null
             );
             isRightButton.setCompoundDrawablesWithIntrinsicBounds(
                     null, null,
-//                    AppCompatResources.getDrawable(getContext(), R.drawable.ic_check),
-                    AppCompatResources.getDrawable(getContext(), R.drawable.ic_dashboard_black_24dp),
+                    AppCompatResources.getDrawable(getContext(), R.drawable.check),
                     null
             );
 

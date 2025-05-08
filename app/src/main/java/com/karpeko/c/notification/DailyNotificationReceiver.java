@@ -37,9 +37,9 @@ public class DailyNotificationReceiver extends BroadcastReceiver {
 
         // Создаем уведомление
         Notification notification = new NotificationCompat.Builder(context, CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_launcher_foreground) // Иконка уведомления
-                .setContentTitle("Ежедневное напоминание")
-                .setContentText("Не забудьте зайти сегодня!")
+                .setSmallIcon(R.drawable.notification) // Иконка уведомления
+                .setContentTitle("Не забудьте сегодня зайти!")
+                .setContentText("Чтобы выучить язык, надо регулярно учиться!")
                 .setContentIntent(pendingIntent)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE)
