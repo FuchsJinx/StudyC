@@ -8,15 +8,16 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="209dp"
-        android:layout_height="168dp"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
         android:layout_marginTop="16dp"
         android:src="@android:drawable/ic_menu_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:clickable="true"
-        android:focusable="true"/>
+        android:focusable="true"
+        android:scaleType="fitXY"/>
 
     <TextView
         android:id="@+id/username"
@@ -59,7 +60,7 @@
         style="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:text="Выйти из аккаунта"
         android:textColor="@color/white"
         android:textSize="12sp"
@@ -68,25 +69,11 @@
         app:layout_constraintTop_toBottomOf="@+id/edit"
         tools:ignore="TextSizeCheck" />
 
-    <TextView
-        android:id="@+id/delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:gravity="center"
-        android:text="Удалить аккаунт"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logout"
-        android:clickable="true"
-        android:focusable="true"/>
-
     <Switch
         android:id="@+id/themeSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="78dp"
         android:minHeight="48dp"
         android:text="Темная тема"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,5 +81,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logout"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
+<!--        android:thumbTint="@color/black"    />-->
+
+    <TextView
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:minHeight="48dp"
+        android:text="Удалить аккаунт"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

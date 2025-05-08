@@ -41,7 +41,8 @@ public class DailyNotificationReceiver extends BroadcastReceiver {
                 .setContentTitle("Ежедневное напоминание")
                 .setContentText("Не забудьте зайти сегодня!")
                 .setContentIntent(pendingIntent)
-                .setAutoCancel(true)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                 .build();
 
         // Показываем уведомление

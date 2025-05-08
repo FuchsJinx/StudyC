@@ -33,6 +33,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.karpeko.c.DatabaseHelper;
 import android.widget.Toast;
 
@@ -56,12 +57,13 @@ public class FragmentLogout extends Fragment {
     SharedPreferences prefs, sharedPreferences;
     private static final String PREFS_NAME = "ThemePrefs";
     private static final String KEY_THEME = "isDarkTheme";
+    View view;
 
     @SuppressLint({"MissingInflatedId", "Range"})
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_logout, container, false);
+        view = inflater.inflate(R.layout.fragment_logout, container, false);
 
         // Загружаем сохраненную тему перед setContentView
         sharedPreferences = requireActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
@@ -75,6 +77,7 @@ public class FragmentLogout extends Fragment {
             requireActivity().setTheme(R.style.AppTheme_Light);
         }
 
+        //переключение темы
         @SuppressLint("UseSwitchCompatOrMaterialCode") Switch themeSwitch = view.findViewById(R.id.themeSwitch);
         themeSwitch.setChecked(isDarkTheme);
 
@@ -186,6 +189,9 @@ public class FragmentLogout extends Fragment {
                 Toast.makeText(getContext(), "Ошибка при сохранении изображения", Toast.LENGTH_SHORT).show();
             }
         }
+        getFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new FragmentLogout())
+                .commit();
     }
 
     private String getUserEmail() {

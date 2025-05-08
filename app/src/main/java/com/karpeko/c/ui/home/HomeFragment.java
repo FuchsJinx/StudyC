@@ -1,11 +1,15 @@
 package com.karpeko.c.ui.home;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.OvershootInterpolator;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
@@ -41,7 +45,16 @@ public class HomeFragment extends Fragment {
         viewModel = new ViewModelProvider(this).get(ThemeProgressViewModel.class);
         viewModel.getProgress().observe(getViewLifecycleOwner(), progress -> {
             ProgressBar progressBar = binding.progressBar;
-            progressBar.setProgress(progress);
+//            progressBar.setProgress(progress);
+            // Анимация заполнения + масштабирования
+            ObjectAnimator progressAnim = ObjectAnimator.ofInt(progressBar, "progress", 0, progress);
+            ObjectAnimator scaleXAnim = ObjectAnimator.ofFloat(progressBar, "scaleX", 1f, 1.05f, 1f);
+            ObjectAnimator scaleYAnim = ObjectAnimator.ofFloat(progressBar, "scaleY", 1f, 1.05f, 1f);
+
+            AnimatorSet set = new AnimatorSet();
+            set.playTogether(progressAnim, scaleXAnim, scaleYAnim);
+            set.setDuration(1200);
+            set.start();
         });
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);

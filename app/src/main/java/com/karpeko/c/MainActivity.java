@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, 12); // Час
-        calendar.set(Calendar.MINUTE, 0);     // Минуты
+        calendar.set(Calendar.MINUTE, 56);     // Минуты
         calendar.set(Calendar.SECOND, 0);     // Секунды
 
         // Если время уже прошло сегодня, переносим на завтра
