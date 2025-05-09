@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.karpeko.c.DatabaseHelper;
 import com.karpeko.c.MainActivity;
 import com.karpeko.c.R;
+import com.karpeko.c.notification.SoundClick;
 
 public class RegistrationActivity extends AppCompatActivity {
     TextView toLogin, notLogin;
@@ -51,6 +52,7 @@ public class RegistrationActivity extends AppCompatActivity {
         });
 
         registration.setOnClickListener(v -> {
+            SoundClick.soundClick(this);
             String sName = name.getText().toString();
             String sEmail = email.getText().toString();
             String sGroup = group.getText().toString();

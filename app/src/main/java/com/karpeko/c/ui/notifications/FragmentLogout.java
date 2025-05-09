@@ -38,6 +38,7 @@ import com.karpeko.c.DatabaseHelper;
 import android.widget.Toast;
 
 import com.karpeko.c.R;
+import com.karpeko.c.notification.SoundClick;
 import com.karpeko.c.registration.EditAccountActivity;
 import com.karpeko.c.themes.ThemeProgressViewModel;
 
@@ -84,6 +85,7 @@ public class FragmentLogout extends Fragment {
         themeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                SoundClick.soundClick(getContext());
                 // Сохраняем выбор темы
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean(KEY_THEME, isChecked);
@@ -108,6 +110,7 @@ public class FragmentLogout extends Fragment {
         delete = view.findViewById(R.id.delete);
 
         icon.setOnClickListener(v -> {
+            SoundClick.soundClick(getContext());
             openImageChooser();
         });
 
@@ -116,6 +119,7 @@ public class FragmentLogout extends Fragment {
         loadData();
 
         logout.setOnClickListener(v -> {
+            SoundClick.soundClick(getContext());
             prefs.edit().clear().apply();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.fragment_container, new FragmentLogin());
@@ -124,6 +128,7 @@ public class FragmentLogout extends Fragment {
 
         edit = view.findViewById(R.id.edit);
         edit.setOnClickListener(v -> {
+            SoundClick.soundClick(getContext());
             Intent intent = new Intent(getContext(), EditAccountActivity.class);
             startActivity(intent);
         });

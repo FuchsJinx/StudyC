@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.karpeko.c.DatabaseHelper;
 import com.karpeko.c.R;
+import com.karpeko.c.notification.SoundClick;
 
 public class EditAccountActivity extends AppCompatActivity {
 
@@ -52,6 +53,7 @@ public class EditAccountActivity extends AppCompatActivity {
         }
 
         edit.setOnClickListener(v -> {
+            SoundClick.soundClick(this);
             String newUsername = name.getText().toString();
             String newEmail = email.getText().toString();
             String newGroup = group.getText().toString();

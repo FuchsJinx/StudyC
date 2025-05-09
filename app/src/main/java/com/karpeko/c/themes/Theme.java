@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.karpeko.c.R;
+import com.karpeko.c.notification.SoundClick;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
@@ -77,6 +78,7 @@ public class Theme extends AppCompatActivity {
     protected void onClick(int index) {
         button = findViewById(R.id.button);
         button.setOnClickListener(v -> {
+            SoundClick.soundClick(this);
             shared(index);
             finish();
         });

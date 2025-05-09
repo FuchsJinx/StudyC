@@ -25,6 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.karpeko.c.DatabaseHelper;
 import com.karpeko.c.R;
+import com.karpeko.c.notification.SoundClick;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,6 +83,7 @@ public class TasksFragment extends Fragment {
     }
 
     private void showAddTaskDialog() {
+        SoundClick.soundClick(getContext());
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = requireActivity().getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.dialog_add_task, null);
@@ -147,6 +149,7 @@ public class TasksFragment extends Fragment {
 
             holder.taskCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
                 if (isChecked) {
+                    SoundClick.soundClick(getContext());
                     deleteTaskFromDatabase(task.getId());
                     tasks.remove(position);
                     notifyItemRemoved(position);

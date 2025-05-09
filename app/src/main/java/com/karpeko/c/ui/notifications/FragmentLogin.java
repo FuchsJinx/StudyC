@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import com.karpeko.c.R;
+import com.karpeko.c.notification.SoundClick;
 import com.karpeko.c.registration.LoginActivity;
 
 public class FragmentLogin extends Fragment {
@@ -35,6 +36,7 @@ public class FragmentLogin extends Fragment {
 
         Button login = view.findViewById(R.id.login);
         login.setOnClickListener(v -> {
+            SoundClick.soundClick(getContext());
             Intent intent = new Intent(getContext(), LoginActivity.class);
             startActivity(intent);
             requireActivity().finish();
@@ -58,6 +60,7 @@ public class FragmentLogin extends Fragment {
         themeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                SoundClick.soundClick(getContext());
                 // Сохраняем выбор темы
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean(KEY_THEME, isChecked);

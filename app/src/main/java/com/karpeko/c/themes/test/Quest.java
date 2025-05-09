@@ -1,6 +1,7 @@
 package com.karpeko.c.themes.test;
 
 import android.animation.ValueAnimator;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -19,6 +20,8 @@ import com.karpeko.c.R;
 
 public class Quest extends Fragment {
 
+    MediaPlayer right, wrong;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -27,6 +30,9 @@ public class Quest extends Fragment {
     }
 
     protected void answer(View view, Fragment fragment) {
+        right = MediaPlayer.create(getContext(), R.raw.right_answer);
+        wrong = MediaPlayer.create(getContext(), R.raw.wrong_answer);
+
         // Находим все кнопки
         Button isRightButton = view.findViewById(R.id.isRight);
         Button isFalseButton1 = view.findViewById(R.id.isFalse1);
@@ -61,6 +67,7 @@ public class Quest extends Fragment {
                     null
             );
 
+            soundPlay(right);
             CountingResults.isRightAnswer++;
 
             // Задержка перед переходом для отображения анимации
@@ -95,6 +102,8 @@ public class Quest extends Fragment {
                     null
             );
 
+            soundPlay(wrong);
+
             // Задержка перед переходом
             new Handler().postDelayed(() -> transition(fragment), 700);
         };
@@ -123,5 +132,14 @@ public class Quest extends Fragment {
         );
         ft.replace(R.id.fragment_container, fragment);
         ft.commit();
+    }
+
+    private void soundPlay(MediaPlayer player) {
+        if (player.isPlaying()) {
+            player.pause();
+            player.seekTo(0);
+            player.setLooping(false);
+        }
+        player.start();
     }
 }

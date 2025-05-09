@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.karpeko.c.DatabaseHelper;
 import com.karpeko.c.MainActivity;
 import com.karpeko.c.R;
+import com.karpeko.c.notification.SoundClick;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -47,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         login.setOnClickListener(v -> {
+            SoundClick.soundClick(this);
             String sEmail = email.getText().toString();
             String sPassword = password.getText().toString();
 
