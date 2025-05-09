@@ -5,21 +5,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/tasks_recycler_view"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="520dp"
-        android:padding="8dp" />
+        android:layout_height="match_parent">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_add_task"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        app:srcCompat="@android:drawable/ic_input_add"
-        android:backgroundTint="@color/colorAccent"
-        android:background="@color/colorAccent"
-        app:rippleColor="@color/colorAccent" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tasks_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="610dp"
+            android:padding="8dp" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_add_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="230dp"
+            android:background="@color/colorAccent"
+            android:backgroundTint="@color/colorAccent"
+            app:rippleColor="@color/colorAccent"
+            app:srcCompat="@android:drawable/ic_input_add" />
+    </FrameLayout>
 </LinearLayout>

@@ -34,7 +34,7 @@
             <TextView
                 android:id="@+id/c1"
                 style="@style/Code"
-                android:text="тип[] имя = new тип[размер]; \nint[] array = new int[10]; \nИли так \nтип[] имя = {n1, n2, n3 ... n}; \nint[] array = { 3, 6, -7, 9, 5, -10, 11};"/>
+                android:text="тип[ ] имя = new тип[размер]; \nint[ ] array = new int[10]; \nИли так \nтип[ ] имя = {n1, n2, n3 ... n}; \nint[ ] array = { 3, 6, -7, 9, 5, -10, 11};"/>
 
             <TextView
                 style="@style/MyStyle"
