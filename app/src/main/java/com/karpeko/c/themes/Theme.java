@@ -64,6 +64,7 @@ public class Theme extends AppCompatActivity {
             codeView.setTextColor(Color.BLACK);
         }
         codeView.setOnClickListener(v -> {
+            SoundClick.soundClick(this);
             if (!isClicked) {
                 isClicked = true;
                 codeView.setText(code);

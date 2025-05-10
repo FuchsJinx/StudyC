@@ -38,11 +38,13 @@ public class LoginActivity extends AppCompatActivity {
         DatabaseHelper databaseHelper = new DatabaseHelper(this);
 
         toRegistration.setOnClickListener(v -> {
+            SoundClick.soundClick(this);
             startActivity(new Intent(this, RegistrationActivity.class));
             finish();
         });
 
         notLogin.setOnClickListener(v -> {
+            SoundClick.soundClick(this);
             startActivity(new Intent(this, MainActivity.class));
             finish();
         });

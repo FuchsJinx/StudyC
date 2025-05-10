@@ -134,6 +134,7 @@ public class FragmentLogout extends Fragment {
         });
 
         delete.setOnClickListener(v -> {
+            SoundClick.soundClick(getContext());
             showDeleteTaskDialog();
         });
 
@@ -260,6 +261,7 @@ public class FragmentLogout extends Fragment {
         builder.setView(dialogView)
                 .setTitle("Подтвердите удаление")
                 .setPositiveButton("Удалить", (dialog, which) -> {
+                    SoundClick.soundClick(getContext());
                     String password = passwordInput.getText().toString().trim();
                     if (!password.isEmpty() && databaseHelper.checkPassword(email, password)) {
                         boolean isDeleted = databaseHelper.deleteAccount(email); // sEmail - email пользователя
@@ -282,7 +284,10 @@ public class FragmentLogout extends Fragment {
                         Toast.makeText(getActivity(), "Введите пароль", Toast.LENGTH_SHORT).show();
                     }
                 })
-                .setNegativeButton("Отмена", (dialog, which) -> dialog.cancel());
+                .setNegativeButton("Отмена", (dialog, which) ->  {
+                    SoundClick.soundClick(getContext());
+                    dialog.cancel();
+                });
 
         builder.create().show();
     }

@@ -93,6 +93,7 @@ public class TasksFragment extends Fragment {
         builder.setView(dialogView)
                 .setTitle("Добавить задачу")
                 .setPositiveButton("Добавить", (dialog, which) -> {
+                    SoundClick.soundClick(getContext());
                     String taskTitle = taskInput.getText().toString().trim();
                     if (!taskTitle.isEmpty()) {
                         addTaskToDatabase(taskTitle);
@@ -100,7 +101,10 @@ public class TasksFragment extends Fragment {
                         Toast.makeText(getActivity(), "Введите текст задачи", Toast.LENGTH_SHORT).show();
                     }
                 })
-                .setNegativeButton("Отмена", (dialog, which) -> dialog.cancel());
+                .setNegativeButton("Отмена", (dialog, which) ->  {
+                    SoundClick.soundClick(getContext());
+                    dialog.cancel();
+                });
 
         builder.create().show();
     }

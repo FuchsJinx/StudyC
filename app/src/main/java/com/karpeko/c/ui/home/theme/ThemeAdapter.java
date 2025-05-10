@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.karpeko.c.notification.SoundClick;
 import com.karpeko.c.themes.AllThemes;
 import com.karpeko.c.themes.Exam;
 import com.karpeko.c.themes.Theme1;
@@ -72,6 +73,7 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ThemeViewHol
             super(itemView);
             title = itemView.findViewById(R.id.textView);
             title.setOnClickListener(v -> {
+                SoundClick.soundClick(context);
                 switch (title.getText().toString()) {
                     case "Знакомство с Visual Studio":
                         Intent intent = new Intent(context, Theme1.class);

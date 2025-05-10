@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.karpeko.c.R;
+import com.karpeko.c.notification.SoundClick;
 
 import org.w3c.dom.Text;
 
@@ -29,12 +30,14 @@ public class AllThemes extends Theme {
 
         TextView textView = findViewById(R.id.textLink1);
         textView.setOnClickListener(v -> {
+            SoundClick.soundClick(this);
             String url = "https://learn.microsoft.com/ru-ru/dotnet/csharp/tour-of-csharp/";
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(intent);
         });
         TextView textView1 = findViewById(R.id.textLink2);
         textView1.setOnClickListener(v -> {
+            SoundClick.soundClick(this);
             String url = "https://metanit.com/sharp/tutorial/";
             Intent intent1 = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(intent1);

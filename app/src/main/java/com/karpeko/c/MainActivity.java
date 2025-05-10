@@ -5,7 +5,9 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.icu.util.Calendar;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +15,7 @@ import android.util.Log;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -20,6 +23,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.karpeko.c.databinding.ActivityMainBinding;
 import com.karpeko.c.notification.DailyNotificationReceiver;
+import com.karpeko.c.themes.ThemeProgressViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,13 +36,29 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+//        BottomNavigationView navView = findViewById(R.id.nav_view);
+//        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+//                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
+//                .build();
+//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+//        NavigationUI.setupWithNavController(binding.navView, navController);
+
+        BottomNavigationView navView = binding.navView;
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+
+        navView.setOnItemSelectedListener(item -> {
+            MediaPlayer mp = MediaPlayer.create(this, R.raw.click);
+            mp.start();
+            mp.setOnCompletionListener(mediaPlayer -> mediaPlayer.release());
+            navController.navigate(item.getItemId());
+            return true;
+        });
+
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(binding.navView, navController);
 
         setDailyNotification();
     }
@@ -85,5 +105,4 @@ public class MainActivity extends AppCompatActivity {
         // Для отладки: можно проверить, на какое время установлен будильник
         Log.d("Notification", "Alarm set for: " + calendar.getTime());
     }
-
 }
