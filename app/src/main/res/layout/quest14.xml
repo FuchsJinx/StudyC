@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/text"
         style="@style/Title"
-        android:text="Чем отличаются структуры от классов?"/>
+        android:text="14. Чем отличаются структуры от классов?"/>
     <Button
         android:id="@+id/isFalse1"
         android:layout_marginTop="50dp"

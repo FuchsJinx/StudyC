@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/text"
         style="@style/Title"
-        android:text="Что делает слово is?"/>
+        android:text="15. Что делает слово is?"/>
     <Button
         android:id="@+id/isFalse1"
         android:layout_marginTop="50dp"

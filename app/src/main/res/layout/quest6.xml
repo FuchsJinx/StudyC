@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/text"
         style="@style/Title"
-        android:text="Что пишется в цикле foreach, если неизвестно достовернно какой тип содержит коллекция?"/>
+        android:text="6. Что пишется в цикле foreach, если неизвестно достовернно какой тип содержит коллекция?"/>
     <Button
         android:id="@+id/isFalse1"
         android:layout_marginTop="50dp"

@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/text"
         style="@style/Title"
-        android:text="В чем ключевое отличие while от do...while?"/>
+        android:text="5. В чем ключевое отличие while от do...while?"/>
     <Button
         android:id="@+id/isRight"
         android:layout_marginTop="50dp"

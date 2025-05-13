@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/text"
         style="@style/Title"
-        android:text="Как изменить значение переменной, с заданным значением в программе, методом без использование return?"/>
+        android:text="11. Как изменить значение переменной, с заданным значением в программе, методом без использование return?"/>
     <Button
         android:id="@+id/isRight"
         android:layout_marginTop="50dp"

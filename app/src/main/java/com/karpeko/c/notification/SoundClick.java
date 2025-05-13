@@ -7,7 +7,6 @@ import com.karpeko.c.R;
 
 public class SoundClick {
 
-
     public static void soundClick(Context context) {
         MediaPlayer click = MediaPlayer.create(context, R.raw.click);
         if (click.isPlaying()) {

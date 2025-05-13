@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/text"
         style="@style/Title"
-        android:text="Что обрабатывется с помощью LINQ?"/>
+        android:text="20. Что обрабатывется с помощью LINQ?"/>
     <Button
         android:id="@+id/isFalse1"
         android:layout_marginTop="50dp"

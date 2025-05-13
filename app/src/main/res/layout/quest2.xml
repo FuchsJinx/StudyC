@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/text"
         style="@style/Title"
-        android:text="К какому типу данных относится тип bool?"/>
+        android:text="2. К какому типу данных относится тип bool?"/>
     <Button
         android:id="@+id/isFalse1"
         android:layout_marginTop="50dp"

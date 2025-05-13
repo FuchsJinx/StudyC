@@ -13,5 +13,4 @@ public class Theme {
 
     public int getId() { return id; }
     public String getTitle() {return title;}
-
 }

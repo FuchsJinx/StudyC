@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/text"
         style="@style/Title"
-        android:text="Какой класс нужен, чтобы получить информацию о файле?"/>
+        android:text="17. Какой класс нужен, чтобы получить информацию о файле?"/>
     <Button
         android:id="@+id/isRight"
         android:layout_marginTop="50dp"

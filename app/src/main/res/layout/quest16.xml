@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/text"
         style="@style/Title"
-        android:text="Какое слово принудительно создает ошибку?"/>
+        android:text="16. Какое слово принудительно создает ошибку?"/>
     <Button
         android:id="@+id/isFalse1"
         android:layout_marginTop="50dp"

@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/text"
         style="@style/Title"
-        android:text="Как обратится к символу стрки, если она находится в массиве?"/>
+        android:text="9. Как обратится к символу строки, если она находится в массиве?"/>
     <Button
         android:id="@+id/isFalse1"
         android:layout_marginTop="50dp"

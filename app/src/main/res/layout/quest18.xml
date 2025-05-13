@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/text"
         style="@style/Title"
-        android:text="В чем отличие массива от списка?"/>
+        android:text="18. В чем отличие массива от списка?"/>
     <Button
         android:id="@+id/isFalse1"
         android:layout_marginTop="50dp"

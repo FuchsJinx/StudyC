@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/text"
         style="@style/Title"
-        android:text="Как узнать колличество элементов первого вложенного массива?"/>
+        android:text="8. Как узнать колличество элементов первого вложенного массива?"/>
     <Button
         android:id="@+id/isFalse1"
         android:layout_marginTop="50dp"

@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/text"
         style="@style/Title"
-        android:text="Какая команда отвечает за ввод текста пользователем?"/>
+        android:text="1. Какая команда отвечает за ввод текста пользователем?"/>
     <Button
         android:id="@+id/isFalse1"
         android:layout_marginTop="50dp"

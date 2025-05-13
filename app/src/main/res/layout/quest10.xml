@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/text"
         style="@style/Title"
-        android:text="Как узнать значение элемента MatchCollection?"/>
+        android:text="10. Как узнать значение элемента MatchCollection?"/>
     <Button
         android:id="@+id/isFalse1"
         android:layout_marginTop="50dp"

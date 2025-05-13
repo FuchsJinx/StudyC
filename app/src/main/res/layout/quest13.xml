@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/text"
         style="@style/Title"
-        android:text="Для чего нужны интерфейсы?"/>
+        android:text="13. Для чего нужны интерфейсы?"/>
     <Button
         android:id="@+id/isFalse1"
         android:layout_marginTop="50dp"

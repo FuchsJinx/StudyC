@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/text"
         style="@style/Title"
-        android:text="Какими следует делать поля класса?"/>
+        android:text="12. Какими следует делать поля класса?"/>
     <Button
         android:id="@+id/isRight"
         android:layout_marginTop="50dp"

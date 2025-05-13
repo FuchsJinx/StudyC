@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/text"
         style="@style/Title"
-        android:text="Что является примером LIFO?"/>
+        android:text="19. Что является примером LIFO?"/>
     <Button
         android:id="@+id/isFalse1"
         android:layout_marginTop="50dp"
