@@ -9,12 +9,15 @@ import android.icu.util.Calendar;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -25,6 +28,8 @@ import com.karpeko.c.notification.DailyNotificationReceiver;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    NavController navController;
+    BottomNavigationView navView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +37,19 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        BottomNavigationView navView = binding.navView;
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+        navView = binding.navView;
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
 
         navView.setOnItemSelectedListener(item -> {
             MediaPlayer mp = MediaPlayer.create(this, R.raw.click);
             mp.start();
             mp.setOnCompletionListener(mediaPlayer -> mediaPlayer.release());
-            navController.navigate(item.getItemId());
+
+            NavOptions navOptions = new NavOptions.Builder()
+                    .setPopUpTo(navController.getGraph().getStartDestinationId(), false)
+                    .build();
+            navController.navigate(item.getItemId(), null, navOptions);
+
             return true;
         });
 
@@ -92,5 +102,20 @@ public class MainActivity extends AppCompatActivity {
 
         // Для отладки: можно проверить, на какое время установлен будильник
         Log.d("Notification", "Alarm set for: " + calendar.getTime());
+    }
+
+    private boolean doubleBackToExitPressedOnce = false;
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Нажмите еще раз для выхода", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(() -> doubleBackToExitPressedOnce = false, 3000);
     }
 }
